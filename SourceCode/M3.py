@@ -1,266 +1,215 @@
-import time
 from SourceCode.Util import *
-
-# This file implements quantization-based clustering for LB_MV.
-# It is the offline candidate clustering version, with adaptive cluster numbers.
+import time
 
 
-def getLBs (dataset, query, reference, w, dim, K=4, Q=2):
-    nqueries = len(query)
-    length=len(query[0])
-    nrefs=len(reference)
-    windowSize = w if w <= length / 2 else int(length / 2)
-    print("W=" + str(windowSize) + '\n')
+# This file implements X0 followed by Z3 for cases that X0 fails but not miserably.
+# The dataCollection function saves the following:
+#     the DTW distances, nearest neighbors, skips, coreTime, Z3 invoked times in each individual directory: a text file
 
-    # #  2003/Loose Lower Bounds
-    # #  ---------------------------------------------------------------------------------------------
-    # print("Starting Loose....")
-    #
-    # #  Calculate slices range
-    # print("Slices Start!")
-    # start=time.time()
-    # allslices = slice_bounds(query[0], reference, windowSize, dim)
-    # end=time.time()
-    # setuptime2003=end-start
-    # print("Slices Done!")
-    #
-    # #  Calculate loose Lower Bounds
-    # print("Loose Start!")
-    # start=time.time()
-    # lbs_2003 = [multLB_2003(query[ids1], reference, dim, allslices) for ids1 in range(len(query))]
-    # end=time.time()
-    # lbtime2003=end-start
-    # np.save(pathUCRResult+"" + dataset + '/' + str(w) + "/"+str(nqueries)+"X"+str(nrefs)+ "_2003_lbs.npy", lbs_2003)
-    # print("Loose Done!" + '\n')
-
-    # cluster-2003 Lower Bounds
-    # ---------------------------------------------------------------------------------------------
-    print("Starting cluster-2003-quick ....")
-    #  Calculate slices range
-    print("Bounding boxes finding Start!")
-    start=time.time()
-    bboxes = [findBoundingBoxes(np.array(ref), K, windowSize, Q) for ref in reference]
-    end=time.time()
-    setuptime2003cluster_q=end-start
-    print("Bounding boxes Done!")
-
-    #  Calculate Lower Bounds
-    print("Cluster-2003-quick lower bounds. Start!")
-    start=time.time()
-    lbs_2003_cluster_q = [getLB_oneQ (query[ids1], reference, dim, bboxes) for ids1 in range(len(query))]
-    end=time.time()
-    lbtime2003cluster_q=end-start
-    # np.save(pathUCRResult+ dataset + "/" + str(w) + "/" + str(nqueries_g) + "X" +
-    #         str(nreferences_g) + "_M3"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_lbs.npy", lbs_2003_cluster_q)
-    print("Cluster-2003-quick Done!" + '\n')
-
-#    thistimes = [setuptime2003cluster_q, lbtime2003cluster_q]
-
-#    np.save(pathUCRResult+ dataset + "/" + str(w) + "/" + str(nqueries_g) + "X" +
-#            str(nreferences_g) + "_M3"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_times.npy", thistimes)
-
-#    allTimes_g.append([setuptime2003cluster_q, lbtime2003cluster_q])
-
-    return lbs_2003_cluster_q, [setuptime2003cluster_q, lbtime2003cluster_q]
-
-def findBoundingBoxes (ref, K, W, Q):
+def getLB_oneQR (Q, R, bboxes):
     '''
-    find the K bounding boxes for each window in ref with quantizations
-    :param ref: a data frame holding a reference series
-    :param K: the number of bounding boxes
-    :param W: the window size
-    :param Q: the number of cells in each dimension
-    :return: a len(ref)*K array with each element [ [dim low ends] [dim high ends]]
+    Get the lower bounds between two series, Q and R with multiple bounding boxes.
+    :param Q: A series.
+    :param R: A series.
+    :param bboxes: the bounding boxes of Q.
+    :return: the lower bound between Q and R
     '''
-    length = ref.shape[0]
-    dims = ref.shape[1]
-    allBoxes = []
-    for idx in range(length):
-#        nonEmptyCells = {}
-        cellMembers = {}
-        bboxes = []
-        awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W if idx + W <= length else length)]
-        overall_ls = [min(np.array(awindow)[:,idd]) for idd in range(dims)]
-        overall_us = [max(np.array(awindow)[:, idd]) for idd in range(dims)]
-        cells = [1+int((overall_us[idd] - overall_ls[idd])*Q) for idd in range(dims)]
-        celllens = [ (overall_us[idd] - overall_ls[idd])/cells[idd]+0.00000001 for idd in range(dims) ]
-        for e in awindow:
-            thiscell = str([int( (e[idd]-overall_ls[idd])/celllens[idd]) for idd in range(dims)])
-            if thiscell in cellMembers:
-                cellMembers[thiscell].append(e)
+    #  X and Y one series, is all references, dim is dimensions, sl_bounds has all the bounding boxes of all reference series
+    LB_sum = 0
+    dim = len(Q[0])
+    for idr, r in enumerate(R):
+        numBoxes = len(bboxes[idr])
+        bounds=[]
+        for idbox in range(numBoxes):
+            l = bboxes[idr][idbox][0]
+            u = bboxes[idr][idbox][1]
+            temp = math.sqrt(sum([(r[idd]-u[idd]) ** 2 if (r[idd] > u[idd]) else (l[idd]-r[idd])**2
+                                    if (r[idd] < l[idd]) else 0 for idd in range(dim)]))
+            bounds.append(temp)
+        LB_sum+=min(bounds)
+    return LB_sum
+
+def findboxes(awindow, K, Q):
+    '''
+    Find the bounding boxes in a segment of a series
+    :param: awindow: a segment of a series
+    :param: K: the maximum number of boxes to find
+    :param: Q: the maximum number of quantization levels per dimension
+    :return: a list of bounding boxes
+    '''
+    cellMembers = {}
+    bboxes = []
+    dims = len(awindow[0])
+    overall_ls = [min(np.array(awindow)[:, idd]) for idd in range(dims)]
+    overall_us = [max(np.array(awindow)[:, idd]) for idd in range(dims)]
+    cells = [1 + int((overall_us[idd] - overall_ls[idd]) * Q) for idd in range(dims)] # adaptive no. of cells
+    celllens = [(overall_us[idd] - overall_ls[idd]) / cells[idd] + 0.00000001 for idd in range(dims)]
+    for e in awindow:
+        thiscell = str([int((e[idd] - overall_ls[idd]) / celllens[idd]) for idd in range(dims)])
+        if thiscell in cellMembers:
+            cellMembers[thiscell].append(e)
+        else:
+            cellMembers[thiscell] = [e]
+    for g in cellMembers:
+        l = [min(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
+        u = [max(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
+        bboxes.append([l, u])
+    if len(bboxes) > K:
+        # combine all boxes except the first K-1 boxes
+        sublist = bboxes[K - 1:]
+        combinedL = [min([b[0][idd] for b in sublist]) for idd in range(dims)]
+        combinedU = [max([b[1][idd] for b in sublist]) for idd in range(dims)]
+        bboxes = bboxes[0:K - 1]
+        bboxes.append([combinedL, combinedU])
+    return bboxes
+
+def DTWwbbox (s1,s2,windowSize, K, Q):
+    '''
+    Compute DTW between q and r and also the tight lower bound between them
+    :param s1: query series
+    :param s2: reference series
+    :param windowSize: half window size
+    :return: dtw distance, bounding boxes
+    '''
+    DTW = {}
+    bboxes = []
+    w = max(windowSize, abs(len(s1)-len(s2)))
+    for i in range(len(s1)):
+        DTW[(i, -1)] = float('inf')
+    for i in range(len(s2)):
+        DTW[(-1, i)] = float('inf')
+    for i in range(len(s1)):
+        DTW[(i, i+w)] = float('inf')
+        DTW[(i, i-w-1)] = float('inf')
+
+    DTW[(-1, -1)] = 0
+
+    lb = 0
+    for i in range(len(s1)):
+        left = max(0,i-w)
+        right = min(len(s2),i+w)
+        for j in range(left,right):
+            dist = distance(s1[i], s2[j])
+            DTW[(i, j)] = dist + min(DTW[(i-1, j)],DTW[(i, j-1)], DTW[(i-1, j-1)])
+        bboxes.append(findboxes(s1[left:right],K,Q))
+
+    return DTW[len(s1)-1, len(s2)-1], bboxes
+
+def DTWDistanceWindowLB_Ordered_M3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, TH=0):
+    '''
+    Compute the shortest DTW between a query and references series.
+    :param queryID: the index number of this query
+    :param M0LBs: the M0 lower bounds of the DTW between this query and each reference series
+    :param DTWdist: the DTW distances between this query and each reference series (to avoid recomputing
+                    the distance in each experiment)
+    :param K: the maximum number of clusters
+    :param Q: the quantization level
+    :param s1: the query
+    :param refs: the references series
+    :param W: the half window size
+    :param TH: the triggering threshold of more expensive lower bound calculations
+    :return: the DTW distance, the neareast neighbor of this query, the number of DTW distance calculations skipped,
+             the number of times the clustering-based method is invoked
+    '''
+    skip = 0
+    cluster_cals = 0
+    coretime = 0
+
+    start = time.time()
+    LBSortedIndex = sorted(range(len(M0LBs)),key=lambda x: M0LBs[x])
+    predId = LBSortedIndex[0]
+    end = time.time()
+    coretime += (end - start)
+
+    dist, bboxes = DTWwbbox (s1, refs[predId], W, K, Q)
+
+    start = time.time()
+    for x in range(1, len(LBSortedIndex)):
+        if M0LBs[LBSortedIndex[x]] > dist:
+            skip += 1
+        elif M0LBs[LBSortedIndex[x]] >= dist - TH*dist:
+            c_lb = getLB_oneQR(s1, refs[LBSortedIndex[x]], bboxes)
+            cluster_cals += 1
+            if c_lb <= dist:
+                dist2 = DTWdist[queryID][LBSortedIndex[x]]
+                if dist >= dist2:
+                    dist = dist2
+                    predId = LBSortedIndex[x]
             else:
-                cellMembers[thiscell] = [e]
-#        if len(cellMembers.keys())>K:
-#            bboxes=[[overall_ls, overall_us]]
-#        else:
-        for g in cellMembers:
-            l = [min(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
-            u = [max(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
-            bboxes.append([l, u])
-        if len(bboxes)>K:
-            # combine all boxes except the first K-1 boxes
-            sublist = bboxes[K-1:]
-            combinedL = [min([ b[0][idd] for b in sublist]) for idd in range(dims)]
-            combinedU = [max([b[1][idd] for b in sublist]) for idd in range(dims)]
-            bboxes= bboxes[0:K-1]
-            bboxes.append([combinedL, combinedU])
-        allBoxes.append(bboxes)
-    return np.array(allBoxes)
+                skip += 1
+        else:
+            dist2 = DTWdist[queryID][LBSortedIndex[x]]
+            if dist >= dist2:
+                dist = dist2
+                predId = LBSortedIndex[x]
+    end = time.time()
+    coretime += (end - start)
 
-
-def getLB_oneQ (X, others, dim, sl_bounds):
-    #  X is one series, others is all references, dim is dimensions, sl_bounds has all the bounding boxes of all reference series
-    lbs = []
-    for idy, s2 in enumerate(others):
-        temps = []
-        LB_sum = 0
-        slboundsOneY = sl_bounds[idy]
-        for idx, x in enumerate(X):
-            numBoxes = len(slboundsOneY[idx])
-            oneYbounds=[]
-            for idbox in range(numBoxes):
-                l = slboundsOneY[idx][idbox][0]
-                u = slboundsOneY[idx][idbox][1]
-                temp = math.sqrt(sum([(x[idd]-u[idd]) ** 2 if (x[idd] > u[idd]) else (l[idd]-x[idd])**2 if (x[idd] < l[idd]) else 0
-                               for idd in range(dim)]))
-                oneYbounds.append(temp)
-            LB_sum+=min(oneYbounds)
-        lbs.append(LB_sum)
-    return lbs
-
-
-def loadSkips (datasets, maxdim, windowSizes, nqueries, nrefs, Ks, Qs):
-    skips_all = []
-    for dataset in datasets:
-        for idx, w in enumerate(windowSizes):
-            skips_temp = []
-            for K in Ks:
-                for Q in Qs:
-                    with open(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"+str(nqueries)+"X"+
-                                      str(nrefs)+ "_M3K"+str(K)+"_Q"+str(Q)+"_results.txt", 'r') as f:
-                        temp = f.readlines()
-                        temps = [l.strip()[1:-1] for l in temp]
-                        results = [t.split(',') for t in temps]
-                        skips = [int(r[2]) for r in results]
-                        skips_temp.append(sum(skips))
-            skips_all.append(skips_temp)
-    return skips_all
+    return dist, predId, skip, coretime, cluster_cals
 
 def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2]):
-    datasets=[]
-    with open(pathUCRResult+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+    datasets = []
+    with open(pathUCRResult + "allDataSetsNames_no_EigenWorms.txt", 'r') as f:
         for line in f:
             datasets.append(line.strip())
     f.close()
-    datasize=[]
-    with open(pathUCRResult+"size_no_EigenWorms.txt",'r') as f:
+    datasize = []
+    with open(pathUCRResult + "size_no_EigenWorms.txt", 'r') as f:
         for line in f:
             datasize.append(int(line.strip()))
     f.close()
 
-    # # create directories if necessary
-    # for datasetName in datasets:
-    #     for w in windows:
-    #         dir = pathUCRResult+"" + datasetName + "/" + str(w)
-    #         if not os.path.exists(dir):
-    #             os.makedirs(dir)
+#   datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
-    #times = np.load(pathUCRResult+"" + '/' + str(nqueries) + "X" + str(nreferences) + "_times_2003_cluster.npy")
-
-    # get # of skips quickly
-    # for datasetName in datasets:
-    #     for w in windows:
-    #         lb_quant, lb_2003 = load_saved_lb(datasetName, w)
-    #         get_skips_quick(datasetName, w, lb_quant, lb_2003, 3)
-    # print("get_skips_quick is done.")
-
-    ################
-    allTimes = []
+#    allTimes = []
     for idxset, dataset in enumerate(datasets):
-        print(dataset+" Start!")
-        assert(datasize[idxset]>=nqueries+nreferences)
-        stuff = loadUCRData_norm_xs(datapath, dataset,nqueries+nreferences)
+        print(dataset + " Start!")
+        assert (datasize[idxset] >= nqueries + nreferences)
+        stuff = loadUCRData_norm_xs(datapath, dataset, nqueries + nreferences)
         size = len(stuff)
         length = stuff[0].shape[0]
         dim = min(stuff[0].shape[1], maxdim)
-        print("Size: "+str(size))
-        print("Dim: "+str(dim))
-        print("Length: "+str(length))
+        print("Size: " + str(size))
+        print("Dim: " + str(dim))
+        print("Length: " + str(length))
         samplequery = stuff[:nqueries]
-        samplereference = stuff[nqueries:nreferences+nqueries]
+        samplereference = stuff[nqueries:nreferences + nqueries]
 
-        print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
-              " Total dtw: "+str(nqueries*nreferences))
+        print(dataset + ":  " + str(nqueries) + " queries, " + str(nreferences) + " references." +
+              " Total dtw: " + str(nqueries * nreferences))
 
         query = [q.values[:, :dim] for q in samplequery]
         reference = [r.values[:, :dim] for r in samplereference]
 
         for w in windows:
+            windowSize = w if w <= length / 2 else int(length / 2)
+            toppath = pathUCRResult + dataset + "/d" + str(maxdim) + '/w' + str(w) + "/"
+            lb2003 = load_M0LBs(pathUCRResult,dataset,maxdim,w,nqueries,nreferences)
+            distanceFileName = pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
+                               str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
+            if not os.path.exists(distanceFileName):
+                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
+                np.save(distanceFileName, np.array(distances))
+            else:
+                distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
-                    lbs_M3, times = getLBs (dataset, query, reference, w, dim, K, Q)
-                    np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
-                            + str(nqueries) + "X" + str(nreferences) + "_M3K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_M3)
-                    allTimes.append(times)
-                    results = get_skips(dataset, maxdim, w, lbs_M3, query, reference)
-                    with open(pathUCRResult + dataset + '/' + 'd' + str(maxdim) + '/w' + str(w) + "/" + str(
-                            nqueries) + "X" + str(
-                            nreferences) + "_" + "M3K" + str(K) + "Q" + str(Q) + "_results" + ".txt", 'w') as f:
+                    results = [DTWDistanceWindowLB_Ordered_M3 (ids1, lb2003[ids1], distances, K, Q,
+                                query[ids1], reference, windowSize) for ids1 in range(len(query))]
+                    if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
+                        print('Wrong Results!! Dataset: ' + dataset)
+                        exit()
+                    with open(toppath + str(nqueries) + "X" + str(
+                            nreferences) + "_M3K" + str(K) + "Q" + str(Q) + "_results.txt", 'w') as f:
                         for r in results:
                             f.write(str(r) + '\n')
-        print(dataset+" Done!"+'\n'+'\n')
+                    f.close()
 
-    np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-            + "_M3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", allTimes)
+#    np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
+#            + "_M3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", allTimes)
 
-def dataProcessing(maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2]):
-    datasets=[]
-    #with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
-    with open(pathUCRResult+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
-        for line in f:
-            datasets.append(line.strip())
-    f.close()
-    datasize=[]
-    #with open(pathUCRResult+"size.txt",'r') as f:
-    with open(pathUCRResult+"size_no_EigenWorms.txt",'r') as f:
-        for line in f:
-            datasize.append(int(line.strip()))
-    f.close()
-
-    # get times
-    allM3Times  = np.load(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-            + "_M3"+"w" + str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy")
-    #  [ dataset1[ [setupTime LBTime] ... ] ... ]
-    allM3Times = allM3Times.reshape((-1, 2*len(Ks)*len(Qs)))
-    datasetsNum = allM3Times.shape[0]
-    M3Settings = int(allM3Times.shape[1]/2)
-    M3SetupTimes = [ [allM3Times[d][s*2] for s in range(M3Settings)] for d in range(datasetsNum)]
-    M3LBTimes = [[allM3Times[d][s*2+1] for s in range(M3Settings)] for d in range(datasetsNum)]
-
-    # [ [data1_SetupTime data1_LBTime] [data2_SetupTime data2_LBTime] ... ]
-    allM0Times = np.load(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" +str(nqueries)+"X"+str(nreferences)
-            + "_M0"+"w" + str(windows)+ "_times.npy")
-    M0SetupTimes = [ allM0Times[d][0] for d in range(datasetsNum)]
-    M0LBTimes = [allM0Times[d][1] for d in range(datasetsNum)]
-
-    M3SetupRatios = [[M3SetupTimes[d][s] / M0LBTimes[d] for s in range(M3Settings)] for d in range(len(datasets))]
-    M3LBRatios = [ [M3LBTimes[d][s]/M0LBTimes[d] for s in range(M3Settings)] for d in range(len(datasets))]
-
-    # get skips
-    # skips_all: 2003, M2, M3_setting1, M3_setting2, ...
-    skips_all = loadSkips(datasets, maxdim, windows, nqueries, nreferences, Ks, Qs)
-    M3Skips = np.array(skips_all)
-    #    M0Skips = np.array(skips_all)[:,0]
-    #    np.save(pathUCRResult+"UsedForPaper/" + str(nqueries) + "X" + str(nreferences) + "M0skips.npy", M0Skips)
-
-    # save all the data to files
-    np.save(pathUCRResult+"UsedForPaper/"+str(nqueries) + "X" + str(nreferences) + "M3SetupRatios.npy", M3SetupRatios)
-    np.save(pathUCRResult+"UsedForPaper/" + str(nqueries) + "X" + str(nreferences) + "M3LBRatios.npy",
-            M3LBRatios)
-    np.save(pathUCRResult+"UsedForPaper/"+str(nqueries) + "X" + str(nreferences) + "M3skips.npy", M3Skips)
-
-    print("data saved.")
+    return 0
 
 #####################################################
 # Main Entry
@@ -274,6 +223,7 @@ if __name__ == '__main__':
     Qs_g = [2, 3, 4]
     #windows_g = [20]
     windows_g = [20]
+    coreTime_g = 0
     dataCollection(datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
     #dataProcessing(maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
 

@@ -4,6 +4,9 @@ import numpy as np
 import pandas as pd
 import glob
 
+import time
+
+
 def calNeighborDistances(A):
     aa = [distance(A[i,:], A[i+1,:]) for i in range(0, len(A)-1)]
     return aa
@@ -35,12 +38,12 @@ def DTW(s1, s2, windowSize):
     return DTW[len(s1)-1, len(s2)-1]
 
 def DTWDistanceWindowLB_Ordered_xs(i, LBs, DTWdist):
-    skip = 0
+    skips = 0
 
+    start = time.time()
     LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
     dist = DTWdist[i][predId]   # xs: changed
-
     for x in range(1,len(LBSortedIndex)):
         if dist>LBs[LBSortedIndex[x]]:  # xs: changed
 #           Use saved DTW distances from baseline
@@ -49,9 +52,10 @@ def DTWDistanceWindowLB_Ordered_xs(i, LBs, DTWdist):
                 dist = dist2
                 predId = LBSortedIndex[x]
         else:
-            skip = skip + 1
-
-    return dist, predId, skip
+            skips = skips + 1
+    end = time.time()
+    coreTime = end - start
+    return dist, predId, skips, coreTime
 
 def get_skips (dataset, maxdim, w, lbs, queries, references):
     nqueries=len(queries)
@@ -68,7 +72,6 @@ def get_skips (dataset, maxdim, w, lbs, queries, references):
     results =[]
     for ids1 in range(nqueries):
         results.append(DTWDistanceWindowLB_Ordered_xs(ids1, lbs[ids1], distances))
-
     return results
 
 def DTWwlb(s1,s2,hwindowSize):
@@ -146,4 +149,103 @@ def loadUCRData_norm_xs (path, name, n):
 def intlist2str(A):
     return '_'.join([str(a) for a in A])
 
-#global datasetName
+def load_M0LBs(pathUCRResult, dataset, maxdim, w, nqueries, nreferences):
+    lb_2003 = np.load(pathUCRResult+dataset+"/d"+ str(maxdim) +"/w"+ str(w) + '/' +
+                      str(nqueries) + "X" + str(nreferences) +"_M0_lbs.npy")
+    return lb_2003
+
+def getGroundTruth (dataset, maxdim, w, nqueries, nreferences, pathUCRResult='../Results/UCR/'):
+    '''
+    Assuming that the DTW distances between all queries and all references are already available. This function
+    generates the ground truth of the nearest distance and neighbor for each query. It outputs the results to
+    a text file, and an npy file.
+    :param dataset:
+    :param maxdim:
+    :param w:
+    :param nqueries:
+    :param nreferences:
+    :return: 0
+    '''
+    distanceFileName = pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
+                       str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
+    textoutputFile = pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
+                       str(nqueries) + "X" + str(nreferences) + "_NoLB_results.txt"
+    distances = np.load(distanceFileName)
+    minDistances = np.min(distances, axis=1).tolist()
+    indices = np.argmin(distances, axis=1).tolist()
+    results = zip(minDistances, indices)
+    with open(textoutputFile,'w') as f:
+        for r in results:
+            f.write(str(r) + '\n')
+#    np.save(npyoutputFile, np.array(results))
+
+def findErrors (dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult='../Results/UCR/'):
+    '''
+    Check whether the results are valid.
+    :param dataset: the name of the dataset of interest
+    :param dim: the maximum dim
+    :param w: window size
+    :param results: an ndarray [ [dtwDistance, nearest neighbor, etc.] ... ]
+    :return: the list of indices that are incorrect
+    '''
+    errorQueries = []
+    resultFile = pathUCRResult+dataset+'/d'+str(maxdim)+'/w'+str(w)+'/' + str(nqueries) + 'X' + \
+                          str(nreferences) + '_NoLB_results.txt'
+    if not os.path.exists(resultFile):
+        getGroundTruth(dataset,maxdim,w,nqueries,nreferences,pathUCRResult)
+    groundTruth = readResultFile(resultFile)
+    results=np.array(results)
+    for i in range(groundTruth.shape[0]):
+        if (groundTruth[i,0] != results[i,0]):
+            errorQueries.append(i)
+    return errorQueries
+
+def getGroundTruth_allDataSets (maxdim, windows, nqueries, nreferences, pathUCRResult='../Results/UCR/'):
+    datasets = []
+    with open(pathUCRResult + "allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+        for line in f:
+            datasets.append(line.strip())
+    for idxset, dataset in enumerate(datasets):
+        print(dataset + " Start!")
+        for w in windows:
+            getGroundTruth (dataset, maxdim, w, nqueries, nreferences, pathUCRResult)
+
+def readResultFile (f):
+    '''
+    Read in a result file and store it into an nd array
+    :param f: the result file name
+    :return: an nd array
+    '''
+    list = []
+    with open(f,'r') as f:
+        ln = f.readline().strip().strip("(").strip(")")
+        if ln!='':
+            list.append([float(a) for a in ln.split(',')])
+    return (np.array(list))
+
+#####################################################
+# Main Entry
+if __name__ == '__main__':
+    pathUCRResult = "../Results/UCR/"
+    datapath = "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
+    maxdim_g = 5
+    nqueries_g = 3
+    nreferences_g = 20
+    windows_g = [20]
+
+#    getGroundTruth_allDataSets (maxdim_g, windows_g, nqueries_g, nreferences_g, pathUCRResult)
+
+    datasets = []
+    with open(pathUCRResult + "allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+        for line in f:
+            datasets.append(line.strip())
+    for dataset in datasets:
+        resultFile = '../Results/UCR/'+dataset + '/d'+str(maxdim_g)+'/w'+str(windows_g[0])+'/' + str(nqueries_g) + \
+                     'X' + str(nreferences_g) + '_M4K8Q4_results.txt'
+        #print(resultFile)
+        results = readResultFile(resultFile)
+        errs = findErrors(dataset, maxdim_g, windows_g[0], nqueries_g, nreferences_g, results)
+        if errs==[]:
+            print(dataset + " passed")
+
+    print("End")

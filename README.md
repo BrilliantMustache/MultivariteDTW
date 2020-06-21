@@ -3,13 +3,21 @@
 This is a project containing a set of baseline and novel methods for conducting multivariate DTW.
 
 ====== List of Methods ==================
-M0: LV_MV
-M1: LV_MV_TIPTOP
-M2: LV_PC_kMeans: Point clustering with k-Means. Done on reference series offline.
-M3: LV_PC_offline: Point clustering with adaptive quantizations. Done on reference series offline.
-M4: LV_PC_online: Point clustering with adaptive quantizations. Done on query series online.
-M5: LV_AD: compute all point distances to get the lower bounds.
-M6: NoLB: directly compute all the DTW distances without using lower bounds.
+X0: LV_MV_offline: min and max are precomputed on references.
+Z0: LV_MV_online.
+
+X1: LV_MV_TIPTOP_offline. X0 followed by online TIPTOP.
+Z1: LV_MV_TIPTOP_online. Z0 followed by online TIPTOP.
+
+X2: LV_PC_offline_kMeans: Point clustering with k-Means. Done on reference series offline.
+
+X3: LV_PC_offline_quan: X0 followed by point clustering-based X0 with adaptive quantizations. Done on reference series offline.
+Z3: LV_PC_online_quan: Z0 followed by point clustering-based Z0 with adaptive quantizations. Done on query series online.
+M3: LV_PC_mixed_quan: X0 followed by Z3
+
+Z4: LV_AD_online: compute all point distances to get the lower bounds.
+
+Z5: NoLB: directly compute all the DTW distances without using lower bounds.
 
 ====== Data File Naming Convention ======
 The naming convention used for the output files by the methods:
@@ -28,8 +36,9 @@ where
          '[m]x[n]': the first m series are used as queries, and the next n series are used as references.
   methodNameAndSetting: the method name following by the used settings.
          Example:
-            'M3K4Q2': the method is M3, and the maximum number of clusters is 4, the number of quantization levels per
+            'X3K4Q2': the method is X3, and the maximum number of clusters is 4, the number of quantization levels per
              dimension is at most 2.
+            'Z0Z1Z4': the info about Z0, Z1, and Z4
   fileContent: the content of the file
          'lbs': lower bounds
          'results': DTW-NN results. Each row has (DTWdistance, Nearest Neighbor ID, Number of skips)
