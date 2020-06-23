@@ -95,7 +95,7 @@ def DTWwbbox (s1,s2,windowSize, K, Q):
 
     return DTW[len(s1)-1, len(s2)-1], bboxes
 
-def DTWDistanceWindowLB_Ordered_M3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, TH=0):
+def DTWDistanceWindowLB_Ordered_M3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, TH=1):
     '''
     Compute the shortest DTW between a query and references series.
     :param queryID: the index number of this query
@@ -147,18 +147,21 @@ def DTWDistanceWindowLB_Ordered_M3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, 
 
     return dist, predId, skip, coretime, cluster_cals
 
-def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2]):
+def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], TH=1):
     datasets = []
-    with open(pathUCRResult + "allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+    # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
         for line in f:
             datasets.append(line.strip())
     f.close()
     datasize = []
-    with open(pathUCRResult + "size_no_EigenWorms.txt", 'r') as f:
+    # with open("Results/UCR/size.txt",'r') as f:
+    with open(datasetsSizeFile, 'r') as f:
         for line in f:
             datasize.append(int(line.strip()))
     f.close()
 
+    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 #   datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
 #    allTimes = []
@@ -211,20 +214,83 @@ def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows
 
     return 0
 
-#####################################################
-# Main Entry
-if __name__ == '__main__':
+
+def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2],machineRatios=[1,1]):
+    datasets = []
+    # with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
+        for line in f:
+            datasets.append(line.strip())
+    f.close()
+    window = windows[0]
+    rdtw = machineRatios[0]
+    rother = machineRatios[1]
+    t1dtw = loadt1dtw(pathUCRResult, maxdim, window)
+    t1bb = loadt1bb(pathUCRResult, maxdim, window)
+
+    datasets = ["ArticularyWordRecognition", "AtrialFibrillation"]
+
+    ndatasets = len(datasets)
+
+    # compute speedups
+    setupLBtimes = np.load(
+        pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
+        + "_X0w" + intlist2str(windows) + "_times.npy")
+    tLB = setupLBtimes[:, 1]
+    tCore = []
+    skips = []
+    totalPairs = nqueries * nreferences
+    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    t1bb = loadt1bb(pathUCRResult, maxdim, window)
+
+    for dataset in datasets:
+        for K in Ks:
+            for Q in Qs:
+                results = readResultFile(
+                    pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
+                        nreferences) + "_M3K" + str(K) + "Q"+str(Q)+"_results.txt")
+                tCore.append(sum(results[:, 3]))
+                skips.append(sum(results[:, 2]))
+    tCore = np.array(tCore).reshape((ndatasets, -1))
+    skips = np.array(skips).reshape((ndatasets, -1))
+
+    tCorePlus = tCore + t1bb*nqueries
+    tDTW = np.tile(t1dtw, (skips.shape[1], 1)).transpose() * ((skips - totalPairs) * -1)
+    tsum = rother * tCorePlus + rdtw * tDTW
+    tsum_min = np.min(tsum, axis=1)
+    setting_chosen = np.argmin(tsum,axis=1)
+    skips_chosen = np.array( [skips[i,setting_chosen[i]] for i in range(skips.shape[0])] )
+    overhead = rother* (np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])]) + tLB)
+    speedups = (rdtw * t1dtw * NPairs) / (rother*tLB + tsum_min)
+    overheadrate = overhead/(rdtw * t1dtw * NPairs)
+
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
+
+    return 0
+
+
+###############
+if __name__ == "__main__":
+    datapath= "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
     pathUCRResult = "../Results/UCR/"
-    datapath = "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
+    datasetsNameFile = pathUCRResult+"allDataSetsNames_no_EigenWorms.txt"
+    datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
+
     maxdim_g = 5
     nqueries_g = 3
     nreferences_g = 20
     Ks_g = [4, 6, 8]
     Qs_g = [2, 3, 4]
-    #windows_g = [20]
     windows_g = [20]
-    coreTime_g = 0
-    dataCollection(datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
-    #dataProcessing(maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
+    TH_g=1
+#    dataCollection(datasetsNameFile, datasetsSizeFile,datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,TH_g)
+    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
 
     print("End")

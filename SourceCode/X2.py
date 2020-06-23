@@ -119,16 +119,16 @@ def getLB_oneQ (X, others, dim, sl_bounds):
     return lbs
 #------------------------------------------
 
-def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], K=4):
-    datasets=[]
-    #with open("Results/UCR/allDataSetsNames.txt",'r') as f:
-    with open(pathUCRResult+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], K=4):
+    datasets = []
+    # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
         for line in f:
             datasets.append(line.strip())
     f.close()
-    datasize=[]
-    #with open("Results/UCR/size.txt",'r') as f:
-    with open(pathUCRResult+"size_no_EigenWorms.txt",'r') as f:
+    datasize = []
+    # with open("Results/UCR/size.txt",'r') as f:
+    with open(datasetsSizeFile, 'r') as f:
         for line in f:
             datasize.append(int(line.strip()))
     f.close()
@@ -182,65 +182,65 @@ def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/"+ str(nqueries) + "X" + str(nreferences) +
             "_X2w" + intlist2str(windows) + "K" + str(K) + "_times.npy", allTimes)
 
-def dataProcessing(maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], K=4, pathUCRResult="../Results/UCR/"):
-    datasets=[]
-    #with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
-    with open(pathUCRResult+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], K=4, machineRatios=[1,1]):
+    datasets = []
+    # with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
         for line in f:
             datasets.append(line.strip())
     f.close()
-    datasize=[]
-    #with open(pathUCRResult+"size.txt",'r') as f:
-    with open(pathUCRResult+"size_no_EigenWorms.txt",'r') as f:
-        for line in f:
-            datasize.append(int(line.strip()))
-    f.close()
-#    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
+    window = windows[0]
+    rdtw = machineRatios[0]
+    rother = machineRatios[1]
+    t1dtw = loadt1dtw(pathUCRResult, maxdim, window)
+    t1nd = loadt1nd(pathUCRResult, maxdim, window)
 
-    # # get times
-    # M0X2Times  = np.load(pathUCRResult+"" + '/' + str(nqueries_g) + "X" + str(nreferences_g) + "_times_2003_cluster.npy")
-    # #  [ dataset1_[2003setupTime 2003LBTime X2setupTime X2LBTime] dataset2_... ]
-    # datasetsNum = M0X2Times.shape[0]
-    # X2SetupTimes = [ M0X2Times[d][2] for d in range(datasetsNum)]
-    # X2LBTimes = [ M0X2Times[d][3] for d in range(datasetsNum)]
-    datasetsNum = len(datasets)
+    datasets = ["ArticularyWordRecognition", "AtrialFibrillation"]
 
-    allX2Times = np.load(pathUCRResult+"_AllDataSets/" +'d' + str(maxdim) + '/' + str(nqueries) + "X" +
-                         str(nreferences) + "_X2w"+intlist2str(windows) + "K" + str(K) + "_times.npy")
-    X2SetupTimes = [ allX2Times[d][0] for d in range(datasetsNum)]
-    X2LBTimes = [allX2Times[d][1] for d in range(datasetsNum)]
+    ndatasets = len(datasets)
 
-    # [ [data1_SetupTime data1_LBTime] [data2_SetupTime data2_LBTime] ... ]
-    allM0Times = np.load(pathUCRResult+"_AllDataSets/" +'d' + str(maxdim) + '/' + str(nqueries) + "X" +
-                         str(nreferences) + "_M0w"+intlist2str(windows) + "_times.npy")
-    M0SetupTimes = [ allM0Times[d][0] for d in range(datasetsNum)]
-    M0LBTimes = [allM0Times[d][1] for d in range(datasetsNum)]
+    # compute speedups
+    setupLBtimes = np.load(
+        pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
+        + "_X0w" + intlist2str(windows) + "_times.npy")
+    tLB = setupLBtimes[:, 1]
+    tCore = []
+    skips = []
+    totalPairs = nqueries * nreferences
+    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    for dataset in datasets:
+        results = readResultFile(
+            pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
+                nreferences) + "_X2K" + str(K) + "_results.txt")
+        tCore.append(sum(results[:, 3]))
+        skips.append(sum(results[:, 2]))
+    tCore = np.array(tCore)
+    tDTW = t1dtw * (NPairs - np.array(skips))
+    speedups = (rdtw*t1dtw * NPairs) / (rdtw*(tLB + tCore) + rother*tDTW)
+    overheadrate = rdtw*(tLB + tCore)/(rdtw*t1dtw * NPairs)
 
-    X2SetupRatios = [X2SetupTimes[d]/M0LBTimes[d] for d in range(len(datasets))]
-    X2LBRatios = [X2LBTimes[d]/M0LBTimes[d] for d in range(len(datasets))]
-
-    # get skips
-    X2Skips = loadSkips(datasets, maxdim, windows, nqueries, nreferences, K)
-
-    # save all the data to files
-    np.save(pathUCRResult+"UsedForPaper/"+str(nqueries) + "X" + str(nreferences) + "X2SetupRatios.npy", X2SetupRatios)
-    np.save(pathUCRResult+"UsedForPaper/" + str(nqueries) + "X" + str(nreferences) + "X2LBRatios.npy",
-            X2LBRatios)
-    np.save(pathUCRResult+"UsedForPaper/"+str(nqueries) + "X" + str(nreferences) + "X2skips.npy", X2Skips)
-
-    print("data saved.")
+    np.save(pathUCRResult+"_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_X2w"+str(window)+'K'+str(K)+'_speedups.npy', speedups)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_X2w" + str(window) + 'K' + str(K) + '_skips.npy', skips)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_X2w" + str(window) + 'K' + str(K) + '_overheadrate.npy', overheadrate)
+    return 0
 
 ############################################
 if __name__ == "__main__":
     datapath= "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
     pathUCRResult = "../Results/UCR/"
+    datasetsNameFile = pathUCRResult+"allDataSetsNames_no_EigenWorms.txt"
+    datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
+
     maxdim_g = 5
     nqueries_g = 3
     nreferences_g = 20
     windows_g = [20]
     K_g = 4
-#    dataCollection(datapath,maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
+#    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
 
-    dataProcessing(maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
+    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
 
     print("End")

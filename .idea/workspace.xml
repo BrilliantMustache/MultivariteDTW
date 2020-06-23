@@ -2,14 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23d53fb1-dbbb-412c-aa49-dab8400f9d02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/X3.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Z0.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Z1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Z3.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SourceCode/M0.py" afterPath="$PROJECT_DIR$/SourceCode/X0.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SourceCode/M1.py" afterPath="$PROJECT_DIR$/SourceCode/X1.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SourceCode/M2.py" afterPath="$PROJECT_DIR$/SourceCode/X2.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SourceCode/Main.py" afterPath="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_skipschosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_skips.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_skipschosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_skipschosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_skipschosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_skips.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_overheadrate.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_settingchosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_skipschosen.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_speedups.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Xs3.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/1X3_M0M1M44_6_82_3_4_DTWTimes.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/1X3_M0M1M4K4_6_8Q2_3_4_DTWTimes.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M0w20_times.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M1w20TH0.05_0.1_0.2_times.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_times.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M4w20K4_6_8Q2_3_4_times.npy" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_times.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_times.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_times.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_results.txt" />
@@ -21,6 +52,28 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X0_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X0_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.05_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.05_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.1_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.1_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K6Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q4_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_results.txt" />
@@ -30,8 +83,39 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X0_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X0_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.05_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.05_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.1_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.1_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K6Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q3_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q4_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" afterPath="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/M3.py" afterPath="$PROJECT_DIR$/SourceCode/M3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" afterPath="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Util.py" afterPath="$PROJECT_DIR$/SourceCode/Util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X0.py" afterPath="$PROJECT_DIR$/SourceCode/X0.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X1.py" afterPath="$PROJECT_DIR$/SourceCode/X1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X2.py" afterPath="$PROJECT_DIR$/SourceCode/X2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X3.py" afterPath="$PROJECT_DIR$/SourceCode/X3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z0.py" afterPath="$PROJECT_DIR$/SourceCode/Z0.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z1.py" afterPath="$PROJECT_DIR$/SourceCode/Z1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z3.py" afterPath="$PROJECT_DIR$/SourceCode/Z3.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,55 +124,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MultivariteDTW" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="X0.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/X0.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="X1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="173" column="1" lean-forward="false" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="X2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="134" column="64" lean-forward="false" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="X3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="165" column="1" lean-forward="false" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Z0.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+            <state relative-caret-position="-804">
+              <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -97,10 +142,22 @@
       <file leaf-file-name="Z1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/Z1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+            <state relative-caret-position="6">
+              <caret line="175" column="14" lean-forward="false" selection-start-line="175" selection-start-column="14" selection-end-line="175" selection-end-column="14" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Z3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Z3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="292" column="6" lean-forward="false" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,9 +166,31 @@
       <file leaf-file-name="M3.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="161" column="4" lean-forward="false" selection-start-line="161" selection-start-column="4" selection-end-line="161" selection-end-column="4" />
+            <state relative-caret-position="387">
+              <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenerateDataForPaper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Xs3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Xs3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,8 +198,8 @@
       <file leaf-file-name="MeasurePerformance.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/MeasurePerformance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="398">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -128,26 +207,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Z3.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SourceCode/Z3.py">
+      <file leaf-file-name="Z0.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-313">
-              <caret line="173" column="4" lean-forward="false" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2272">
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
+      <file leaf-file-name="X2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="196" column="29" lean-forward="false" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="66">
+              <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="X3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2271">
+              <caret line="301" column="4" lean-forward="false" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,17 +248,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>load</find>
-      <find>load_Mo</find>
-      <find>DTWDist</find>
-      <find>ordered</find>
-      <find>get_skips</find>
-      <find>time()</find>
-      <find>alltim</find>
-      <find>alltimes</find>
-      <find>alltimes_g</find>
-      <find>time</find>
-      <find>peri</find>
       <find>allTimes</find>
       <find>dtww</find>
       <find>dxx</find>
@@ -192,7 +266,18 @@
       <find>write</find>
       <find>_times.npy</find>
       <find>times</find>
+      <find>coretim</find>
+      <find>core</find>
+      <find>coretime</find>
+      <find>TH</find>
+      <find>getlbs</find>
+      <find>get_skips</find>
+      <find>_M3</find>
+      <find>tlb</find>
+      <find>bbo</find>
       <find>np.save</find>
+      <find>save(</find>
+      <find>bboxes</find>
     </findStrings>
     <replaceStrings>
       <replace>pathUCRResult+&quot;</replace>
@@ -217,25 +302,27 @@
         <option value="$PROJECT_DIR$/SourceCode/M0.py" />
         <option value="$PROJECT_DIR$/SourceCode/M4.py" />
         <option value="$PROJECT_DIR$/SourceCode/M1.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
         <option value="$PROJECT_DIR$/SourceCode/Util.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X0.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X1.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X2.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X3.py" />
-        <option value="$PROJECT_DIR$/SourceCode/M3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/SourceCode/Z0.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X1.py" />
+        <option value="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X2.py" />
         <option value="$PROJECT_DIR$/SourceCode/Z1.py" />
+        <option value="$PROJECT_DIR$/SourceCode/M3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X0.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/Xs3.py" />
         <option value="$PROJECT_DIR$/SourceCode/Z3.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="23" />
-    <option name="width" value="1422" />
-    <option name="height" value="877" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="9" />
+    <option name="y" value="36" />
+    <option name="width" value="1308" />
+    <option name="height" value="771" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -255,8 +342,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,69 +352,43 @@
             <path>
               <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
               <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="Results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="Results" type="462c0819:PsiDirectoryNode" />
-              <item name="UCR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="Results" type="462c0819:PsiDirectoryNode" />
-              <item name="UCR" type="462c0819:PsiDirectoryNode" />
-              <item name="ArticularyWordRecognition" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="Results" type="462c0819:PsiDirectoryNode" />
-              <item name="UCR" type="462c0819:PsiDirectoryNode" />
-              <item name="ArticularyWordRecognition" type="462c0819:PsiDirectoryNode" />
-              <item name="d5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="Results" type="462c0819:PsiDirectoryNode" />
-              <item name="UCR" type="462c0819:PsiDirectoryNode" />
-              <item name="ArticularyWordRecognition" type="462c0819:PsiDirectoryNode" />
-              <item name="d5" type="462c0819:PsiDirectoryNode" />
-              <item name="w20" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
               <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
               <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
               <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="Util.py" type="8704e2dd:PyFileNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
               <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
               <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="Z1.py" type="8704e2dd:PyFileNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+              <item name="renameResultFiles.py" type="8704e2dd:PyFileNode" />
             </path>
             <path>
               <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
               <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
               <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="Z3.py" type="8704e2dd:PyFileNode" />
+              <item name="M3.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
+              <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
+              <item name="Xs3.py" type="8704e2dd:PyFileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -352,7 +411,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Z3">
+  <component name="RunManager" selected="Python.GenerateDataForPaper">
+    <configuration name="GenerateDataForPaper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SourceCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MultivariteDTW" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="M3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -370,7 +446,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="X3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="MeasurePerformance" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -382,24 +458,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/X3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Z0" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SourceCode" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Z0.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -439,19 +498,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.X3" />
-      <item index="1" class="java.lang.String" itemvalue="Python.M3" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Z0" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Z1" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Z3" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Z1" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Z3" />
+      <item index="2" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
+      <item index="3" class="java.lang.String" itemvalue="Python.M3" />
+      <item index="4" class="java.lang.String" itemvalue="Python.MeasurePerformance" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Z3" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Z1" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Z0" />
-        <item index="3" class="java.lang.String" itemvalue="Python.M3" />
-        <item index="4" class="java.lang.String" itemvalue="Python.X3" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
+        <item index="1" class="java.lang.String" itemvalue="Python.MeasurePerformance" />
+        <item index="2" class="java.lang.String" itemvalue="Python.M3" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Z3" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Z1" />
       </list>
     </recent_temporary>
   </component>
@@ -469,26 +528,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="23" width="1422" height="877" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25949368" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17638889" sideWeight="0.49576783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38814995" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49232736" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3801242" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39258313" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04922644" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34945586" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2576389" sideWeight="0.50423217" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3611111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -508,8 +567,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SourceCode/Util.py</url>
-          <line>172</line>
+          <line>205</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/X1.py</url>
+          <line>283</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/X3.py</url>
+          <line>275</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/Z0.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/Z1.py</url>
+          <line>180</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/X3.py</url>
+          <line>284</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/M3.py</url>
+          <line>275</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -519,171 +613,33 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceCode/temputil.py">
+    <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state relative-caret-position="3360">
+          <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sre_parse.py">
+    <entry file="file://$PROJECT_DIR$/SourceCode/Z1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="751" column="0" lean-forward="false" selection-start-line="751" selection-start-column="0" selection-end-line="751" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M0_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="2865">
+          <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="26" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2247">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="294" column="18" lean-forward="true" selection-start-line="282" selection-start-column="0" selection-end-line="294" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/allDataSetsNames_no_EigenWorms.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/numpy/lib/format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="738" column="0" lean-forward="false" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="190" column="23" lean-forward="false" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M0.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="143" column="20" lean-forward="true" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="63" lean-forward="false" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K6Q4_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_NoLB_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K6Q3_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K4Q2_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K8Q3_results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/MeasurePerformance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/numpy/lib/npyio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="196" column="29" lean-forward="false" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
+        <state relative-caret-position="3180">
+          <caret line="212" column="13" lean-forward="false" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="13" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -692,58 +648,289 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/X0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="173" column="1" lean-forward="false" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="134" column="64" lean-forward="false" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="165" column="1" lean-forward="false" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
+        <state relative-caret-position="2145">
+          <caret line="144" column="69" lean-forward="false" selection-start-line="143" selection-start-column="4" selection-end-line="144" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="161" column="4" lean-forward="false" selection-start-line="161" selection-start-column="4" selection-end-line="161" selection-end-column="4" />
+        <state relative-caret-position="1725">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
+    <entry file="file://$PROJECT_DIR$/SourceCode/Xs3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+        <state relative-caret-position="3450">
+          <caret line="232" column="20" lean-forward="false" selection-start-line="231" selection-start-column="11" selection-end-line="232" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/MeasurePerformance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/temputil.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/sre_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="751" column="0" lean-forward="false" selection-start-line="751" selection-start-column="0" selection-end-line="751" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M0_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/M2.py" />
+    <entry file="file://$PROJECT_DIR$/SourceCode/M1.py" />
+    <entry file="file://$PROJECT_DIR$/Results/UCR/allDataSetsNames_no_EigenWorms.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/numpy/lib/format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="738" column="0" lean-forward="false" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/M4.py" />
+    <entry file="file://$PROJECT_DIR$/SourceCode/M0.py" />
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K6Q4_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_NoLB_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K6Q3_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K4Q2_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M4K8Q3_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/numpy/lib/npyio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q3_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q2_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q4_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.05_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.1_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M1TH0.1_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X0_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z0_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q4_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q3_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q2_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q3_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3180">
+          <caret line="212" column="13" lean-forward="false" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-804">
+          <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2271">
+          <caret line="301" column="4" lean-forward="false" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Z1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+        <state relative-caret-position="6">
+          <caret line="175" column="14" lean-forward="false" selection-start-line="175" selection-start-column="14" selection-end-line="175" selection-end-column="14" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -752,11 +939,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Z3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="173" column="4" lean-forward="false" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
+        <state relative-caret-position="321">
+          <caret line="292" column="6" lean-forward="false" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/MeasurePerformance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Xs3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2272">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

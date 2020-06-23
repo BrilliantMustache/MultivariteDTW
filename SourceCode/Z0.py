@@ -70,19 +70,20 @@ def DTWDistanceWindowLB_Ordered_Z0 (i, DTWdist, query, references, W):
     return dist, predId, skip, coreTime
 
 
-def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20]):
+def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20]):
     datasets=[]
-    with open(pathUCRResult+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
+    #with open("Results/UCR/allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
         for line in f:
             datasets.append(line.strip())
     f.close()
     datasize=[]
-    with open(pathUCRResult+"size_no_EigenWorms.txt",'r') as f:
+    #with open("Results/UCR/size.txt",'r') as f:
+    with open(datasetsSizeFile,'r') as f:
         for line in f:
             datasize.append(int(line.strip()))
     f.close()
-
-#    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
+    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
     # # create directories if necessary
     # for datasetName in datasets:
@@ -129,7 +130,7 @@ def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows
 #            np.save(pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
 #                    + str(nqueries) + "X" + str(nreferences) + "_Z0_lbs.npy", np.array(LBs_g))
             with open(toppath + str(nqueries) + "X" + str(
-                    nreferences) + "_X0" + "_results.txt", 'w') as f:
+                    nreferences) + "_Z0" + "_results.txt", 'w') as f:
                 for r in results:
                     f.write(str(r) + '\n')
             f.close()
@@ -139,16 +140,72 @@ def dataCollection(datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows
     return 0
 
 
+
+def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], machineRatios=[1,1]):
+    '''
+    Process the data to get the speedups. Currently, only deals with the first element in windows.
+    :param datasetsNameFile:
+    :param pathUCRResult:
+    :param maxdim:
+    :param nqueries:
+    :param nreferences:
+    :param windows:
+    :param machineRatios: Used for cross-machine performance estimation. [r1, r2].
+                          r1: tDTW(new machine)/tDTW(this machine);
+                          r2: tM0LB(new machine)/tM0LB(this machine), taken as the ratio for all other times.
+    :return: 0
+    '''
+    datasets=[]
+    #with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
+    with open(datasetsNameFile, 'r') as f:
+        for line in f:
+            datasets.append(line.strip())
+    f.close()
+    window = windows[0]
+    rdtw = machineRatios[0]
+    rother = machineRatios[1]
+    t1dtw = loadt1dtw(pathUCRResult, maxdim, window)
+
+    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
+
+    ndatasets = len(datasets)
+
+    # compute speedups
+    tCore = []
+    skips = []
+    totalPairs = nqueries*nreferences
+    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    for dataset in datasets:
+        results = readResultFile(pathUCRResult + dataset + '/d' + str(maxdim) + "/w"+ str(windows[0]) + "/" + str(nqueries) + "X" + str(nreferences)
+            + "_Z0" + "_results.txt")
+        tCore.append(sum(results[:,3]))
+        skips.append(sum(results[:,2]))
+    tCore = np.array(tCore)
+    tDTW = t1dtw*(NPairs - np.array(skips))
+    speedups = (rdtw*t1dtw*NPairs)/(rother*tCore+rdtw*tDTW)
+    overheadrate = (rother*tCore)/(rdtw*t1dtw*NPairs)
+
+    np.save(pathUCRResult+"_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_Z0w"+str(window)+'_speedups.npy', speedups)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_Z0w" + str(window) + '_skips.npy', skips)
+    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+            "_Z0w" + str(window) + '_overheadrate.npy', overheadrate)
+    return 0
+
 ########################
 # collect X0's data
 if __name__ == "__main__":
     datapath= "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
     pathUCRResult = "../Results/UCR/"
+    datasetsNameFile = pathUCRResult+"allDataSetsNames_no_EigenWorms.txt"
+    datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
+
     allTimes_g = []
     maxdim_g = 5
     nqueries_g = 3
     nreferences_g = 20
     windows_g = [20]
-    dataCollection(datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
-#    dataProcessing(maxdim_g, nqueries_g, nreferences_g, windows_g)
+#    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
+    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g)
     print("End")

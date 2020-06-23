@@ -74,6 +74,39 @@ def get_skips (dataset, maxdim, w, lbs, queries, references):
         results.append(DTWDistanceWindowLB_Ordered_xs(ids1, lbs[ids1], distances))
     return results
 
+def loadt1dtw(pathUCRResult, maxdim, window):
+    '''
+    Load the time of one DTW for all datasets
+    :param maxdim:
+    :param window:
+    :return: an nd array with all the times included
+    '''
+    t1dtwFile = pathUCRResult+'_AllDataSets/d'+str(maxdim)+ '/Any_Anyw'+str(window)+'_t1dtw.npy'
+    t1dtw = np.load(t1dtwFile)
+    return t1dtw
+
+def loadt1nd (pathUCRResult, maxdim, window):
+    '''
+    Load the time of one neighbor distance for all datasets.
+    :param maxdim:
+    :param window:
+    :return: an nd array with all the times included
+    '''
+    t1ndFile = pathUCRResult+'_AllDataSets/d'+str(maxdim)+ '/Any_Anyw'+str(window)+'_t1nd.npy'
+    t1nd = np.load(t1ndFile)
+    return t1nd
+
+def loadt1bb (pathUCRResult, maxdim, window):
+    '''
+    Load the time of one neighbor distance for all datasets.
+    :param maxdim:
+    :param window:
+    :return: an nd array with all the times included
+    '''
+    t1bbFile = pathUCRResult+'_AllDataSets/d'+str(maxdim)+ '/Any_Anyw'+str(window)+'_t1bb.npy'
+    t1bb = np.load(t1bbFile)
+    return t1bb
+
 def DTWwlb(s1,s2,hwindowSize):
     '''
     Compute DTW between q and r and also the tight lower bound between them
@@ -218,9 +251,11 @@ def readResultFile (f):
     '''
     list = []
     with open(f,'r') as f:
-        ln = f.readline().strip().strip("(").strip(")")
-        if ln!='':
-            list.append([float(a) for a in ln.split(',')])
+        lines = f.readlines()
+        for ln in lines:
+            ln = ln.strip().strip("(").strip(")")
+            if ln!='':
+                list.append([float(a) for a in ln.split(',')])
     return (np.array(list))
 
 #####################################################

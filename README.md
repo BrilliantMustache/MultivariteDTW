@@ -3,6 +3,8 @@
 This is a project containing a set of baseline and novel methods for conducting multivariate DTW.
 
 ====== List of Methods ==================
+(X: for Xianxia which means offline in Chinese; Z: for Zaixian which means online in Chinese)
+
 X0: LV_MV_offline: min and max are precomputed on references.
 Z0: LV_MV_online.
 
@@ -11,9 +13,10 @@ Z1: LV_MV_TIPTOP_online. Z0 followed by online TIPTOP.
 
 X2: LV_PC_offline_kMeans: Point clustering with k-Means. Done on reference series offline.
 
-X3: LV_PC_offline_quan: X0 followed by point clustering-based X0 with adaptive quantizations. Done on reference series offline.
+X3: LV_PC_offline_quan: point clustering-based X0 with adaptive quantizations. Quantization on reference series offline. No X0 is used.
 Z3: LV_PC_online_quan: Z0 followed by point clustering-based Z0 with adaptive quantizations. Done on query series online.
 M3: LV_PC_mixed_quan: X0 followed by Z3
+# TODO: S3: X0 followed by X3
 
 Z4: LV_AD_online: compute all point distances to get the lower bounds.
 
