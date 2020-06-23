@@ -274,13 +274,17 @@ if __name__ == '__main__':
     with open(pathUCRResult + "allDataSetsNames_no_EigenWorms.txt", 'r') as f:
         for line in f:
             datasets.append(line.strip())
+    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
+
     for dataset in datasets:
         resultFile = '../Results/UCR/'+dataset + '/d'+str(maxdim_g)+'/w'+str(windows_g[0])+'/' + str(nqueries_g) + \
-                     'X' + str(nreferences_g) + '_M4K8Q4_results.txt'
+                     'X' + str(nreferences_g) + '_Xr3K8Q4_results.txt'
         #print(resultFile)
         results = readResultFile(resultFile)
+        #results[0,0] = '-3333'
         errs = findErrors(dataset, maxdim_g, windows_g[0], nqueries_g, nreferences_g, results)
         if errs==[]:
             print(dataset + " passed")
-
+        else:
+            print(dataset + " error.")
     print("End")

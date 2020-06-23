@@ -17,35 +17,15 @@ def getLBs (dataset, query, reference, w, dim, K=4, Q=2):
     windowSize = w if w <= length / 2 else int(length / 2)
     print("W=" + str(windowSize) + '\n')
 
-    # #  2003/Loose Lower Bounds
-    # #  ---------------------------------------------------------------------------------------------
-    # print("Starting Loose....")
-    #
-    # #  Calculate slices range
-    # print("Slices Start!")
-    # start=time.time()
-    # allslices = slice_bounds(query[0], reference, windowSize, dim)
-    # end=time.time()
-    # setuptime2003=end-start
-    # print("Slices Done!")
-    #
-    # #  Calculate loose Lower Bounds
-    # print("Loose Start!")
-    # start=time.time()
-    # lbs_2003 = [multLB_2003(query[ids1], reference, dim, allslices) for ids1 in range(len(query))]
-    # end=time.time()
-    # lbtime2003=end-start
-    # np.save(pathUCRResult+"" + dataset + '/' + str(w) + "/"+str(nqueries)+"X"+str(nrefs)+ "_2003_lbs.npy", lbs_2003)
-    # print("Loose Done!" + '\n')
-
-    # cluster-2003 Lower Bounds
-    # ---------------------------------------------------------------------------------------------
-    print("Starting cluster-2003-quick ....")
     #  Calculate slices range
     print("Bounding boxes finding Start!")
     start=time.time()
     bboxes = [findBoundingBoxes(np.array(ref), K, windowSize, Q) for ref in reference]
     end=time.time()
+    nboxes=0
+    for r in range(len(reference)):
+        boxes = bboxes[r]
+        nboxes += sum([len(p) for p in boxes])
     setuptime2003cluster_q=end-start
     print("Bounding boxes Done!")
 
@@ -66,7 +46,7 @@ def getLBs (dataset, query, reference, w, dim, K=4, Q=2):
 
 #    allTimes_g.append([setuptime2003cluster_q, lbtime2003cluster_q])
 
-    return lbs_2003_cluster_q, [setuptime2003cluster_q, lbtime2003cluster_q]
+    return lbs_2003_cluster_q, [setuptime2003cluster_q, lbtime2003cluster_q], nboxes
 
 def findBoundingBoxes (ref, K, W, Q):
     '''
@@ -133,24 +113,6 @@ def getLB_oneQ (X, others, dim, sl_bounds):
         lbs.append(LB_sum)
     return lbs
 
-
-def loadSkips (datasets, maxdim, windowSizes, nqueries, nrefs, Ks, Qs):
-    skips_all = []
-    for dataset in datasets:
-        for idx, w in enumerate(windowSizes):
-            skips_temp = []
-            for K in Ks:
-                for Q in Qs:
-                    with open(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"+str(nqueries)+"X"+
-                                      str(nrefs)+ "_X3K"+str(K)+"Q"+str(Q)+"_results.txt", 'r') as f:
-                        temp = f.readlines()
-                        temps = [l.strip()[1:-1] for l in temp]
-                        results = [t.split(',') for t in temps]
-                        skips = [int(r[2]) for r in results]
-                        skips_temp.append(sum(skips))
-            skips_all.append(skips_temp)
-    return skips_all
-
 def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2]):
     datasets = []
     # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
@@ -185,6 +147,7 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
 
     ################
     allTimes = []
+    allnboxes = []
     for idxset, dataset in enumerate(datasets):
         print(dataset+" Start!")
         assert(datasize[idxset]>=nqueries+nreferences)
@@ -208,7 +171,8 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
-                    lbs_X3, times = getLBs (dataset, query, reference, w, dim, K, Q)
+                    lbs_X3, times, nboxes = getLBs (dataset, query, reference, w, dim, K, Q)
+                    allnboxes.append(nboxes)
                     np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                             + str(nqueries) + "X" + str(nreferences) + "_X3K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
                     allTimes.append(times)
@@ -225,6 +189,10 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
 
     np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
             + "_X3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", np.array(allTimes))
+    np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
+            + "_X3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_nboxes.npy", np.array(allnboxes))
+
+    print("Data collection is done.")
 
 def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2],machineRatios=[1,1]):
     datasets = []

@@ -1,6 +1,6 @@
 from SourceCode.Util import *
 from SourceCode.X1 import DTWwnd
-from SourceCode.M3 import DTWwbbox
+from SourceCode.Xz3 import DTWwbbox
 
 # Main Entry Point
 pathUCRResult = "../Results/UCR/"

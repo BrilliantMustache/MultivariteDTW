@@ -95,7 +95,7 @@ def DTWwbbox (s1,s2,windowSize, K, Q):
 
     return DTW[len(s1)-1, len(s2)-1], bboxes
 
-def DTWDistanceWindowLB_Ordered_M3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, TH=1):
+def DTWDistanceWindowLB_Ordered_Xz3 (queryID, M0LBs, DTWdist, K, Q, s1, refs, W, TH=1):
     '''
     Compute the shortest DTW between a query and references series.
     :param queryID: the index number of this query
@@ -198,19 +198,19 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
-                    results = [DTWDistanceWindowLB_Ordered_M3 (ids1, lb2003[ids1], distances, K, Q,
+                    results = [DTWDistanceWindowLB_Ordered_Xz3 (ids1, lb2003[ids1], distances, K, Q,
                                 query[ids1], reference, windowSize) for ids1 in range(len(query))]
                     if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
                         print('Wrong Results!! Dataset: ' + dataset)
                         exit()
                     with open(toppath + str(nqueries) + "X" + str(
-                            nreferences) + "_M3K" + str(K) + "Q" + str(Q) + "_results.txt", 'w') as f:
+                            nreferences) + "_Xz3K" + str(K) + "Q" + str(Q) + "_results.txt", 'w') as f:
                         for r in results:
                             f.write(str(r) + '\n')
                     f.close()
 
 #    np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-#            + "_M3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", allTimes)
+#            + "_Xz3"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", allTimes)
 
     return 0
 
@@ -248,7 +248,7 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
             for Q in Qs:
                 results = readResultFile(
                     pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
-                        nreferences) + "_M3K" + str(K) + "Q"+str(Q)+"_results.txt")
+                        nreferences) + "_Xz3K" + str(K) + "Q"+str(Q)+"_results.txt")
                 tCore.append(sum(results[:, 3]))
                 skips.append(sum(results[:, 2]))
     tCore = np.array(tCore).reshape((ndatasets, -1))
@@ -265,13 +265,13 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     overheadrate = overhead/(rdtw * t1dtw * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
+            "_Xz3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
+            "_Xz3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
+            "_Xz3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_M3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
+            "_Xz3w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
 
     return 0
 

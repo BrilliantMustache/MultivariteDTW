@@ -84,7 +84,6 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
             datasize.append(int(line.strip()))
     f.close()
     datasets=["ArticularyWordRecognition","AtrialFibrillation"]
-
     # # create directories if necessary
     # for datasetName in datasets:
     #     for w in windows:
@@ -206,6 +205,6 @@ if __name__ == "__main__":
     nqueries_g = 3
     nreferences_g = 20
     windows_g = [20]
-#    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
+    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
     dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g)
     print("End")

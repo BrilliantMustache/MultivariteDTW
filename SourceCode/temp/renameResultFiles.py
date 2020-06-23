@@ -61,15 +61,26 @@ def copyDistanceFilesOver(datasets):
         dist = np.load(oldfile)
         np.save(newfile, dist)
 
+def renameM3toXz3(datasets):
+    for dataset in datasets:
+        datasetpath = pathUCRResults_g + dataset + '/'
+        dirs = [x[0] for x in os.walk(datasetpath)]
+        for d in dirs[1:]:
+            fullpattern = d + "/*M3*"
+            oldFiles = glob.glob(fullpattern)
+            for f in oldFiles:
+                nf = f.replace('M3','Xz3')
+                os.rename(f, nf)
+
 datasets_g = []
 pathUCRResults_g = "../../Results/UCR/"
 with open(pathUCRResults_g+ "/allDataSetsNames_no_EigenWorms.txt", 'r') as f:
 #with open("../Results/UCR/allDataSetsNames_no_EigenWorms.txt", 'r') as f:
     for line in f:
         datasets_g.append(line.strip())
-f.close()
-
-copyDistanceFilesOver(datasets_g)
+datasets_g.append('_AllDataSets')
+renameM3toXz3(datasets_g)
+#copyDistanceFilesOver(datasets_g)
 exit()
 
 # rename all DTW distance files

@@ -2,60 +2,543 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23d53fb1-dbbb-412c-aa49-dab8400f9d02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_skipschosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_skips.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_skipschosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X1w20TH0.05_0.1_0.2_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_skipschosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_skipschosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Xs3w20K4_6_8Q2_3_4_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_skips.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z1w20TH0.05_0.1_0.2_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_overheadrate.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_settingchosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_skipschosen.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z3w20K4_6_8Q2_3_4_speedups.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Xs3.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/1X3_M0M1M44_6_82_3_4_DTWTimes.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/1X3_M0M1M4K4_6_8Q2_3_4_DTWTimes.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M0w20_times.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M1w20TH0.05_0.1_0.2_times.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_times.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M4w20K4_6_8Q2_3_4_times.npy" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X0w20_times.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SourceCode/Xr3.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/BasicMotions/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/CharacterTrajectories/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Cricket/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/DuckDuckGeese/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/ERing/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Epilepsy/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/EthanolConcentration/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FaceDetection/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/FingerMovements/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/HandMovementDirection/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Handwriting/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Heartbeat/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/InsectWingbeat/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/JapaneseVowels/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/LSST/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/Libras/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/MotorImagery/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/NATOPS/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PEMS-SF/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PenDigits/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/PhonemeSpectra/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/RacketSports/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP1/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SelfRegulationSCP2/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/SpokenArabicDigits/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/StandWalkJump/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K4Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K6Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q2_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q2_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q3_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q3_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q4_lbs.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/UWaveGestureLibrary/d5/w20/3X20_M3K8Q4_results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_overheadrate.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_settingchosen.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_skipschosen.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_M3w20K4_6_8Q2_3_4_speedups.npy" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SourceCode/M3.py" afterPath="$PROJECT_DIR$/SourceCode/Xz3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_overheadrate.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_overheadrate.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_speedups.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_speedups.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X2w20K4_times.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_times.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_X3w20K4_6_8Q2_3_4_times.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_overheadrate.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_overheadrate.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_speedups.npy" afterPath="$PROJECT_DIR$/Results/UCR/_AllDataSets/d5/3X20_Z0w20_speedups.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K4Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K6Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_M3K8Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X0_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X0_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.05_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.05_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.1_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.1_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X1TH0.2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X2K4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X2K4_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K4Q4_results.txt" />
@@ -65,28 +548,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_X3K8Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K4Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K6Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/ArticularyWordRecognition/d5/w20/3X20_Z3K8Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K4Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K6Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_M3K8Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X0_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X0_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.05_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.05_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.1_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.1_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X1TH0.2_results.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X2K4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X2K4_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K4Q4_results.txt" />
@@ -96,26 +558,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q2_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q3_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_X3K8Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K4Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K6Q4_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q2_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q2_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q3_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q3_results.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q4_results.txt" afterPath="$PROJECT_DIR$/Results/UCR/AtrialFibrillation/d5/w20/3X20_Z3K8Q4_results.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" afterPath="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/M3.py" afterPath="$PROJECT_DIR$/SourceCode/M3.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" afterPath="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Util.py" afterPath="$PROJECT_DIR$/SourceCode/Util.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X0.py" afterPath="$PROJECT_DIR$/SourceCode/X0.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X1.py" afterPath="$PROJECT_DIR$/SourceCode/X1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X2.py" afterPath="$PROJECT_DIR$/SourceCode/X2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/X3.py" afterPath="$PROJECT_DIR$/SourceCode/X3.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z0.py" afterPath="$PROJECT_DIR$/SourceCode/Z0.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z1.py" afterPath="$PROJECT_DIR$/SourceCode/Z1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/Z3.py" afterPath="$PROJECT_DIR$/SourceCode/Z3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py" afterPath="$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -129,45 +578,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="X1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
+      <file leaf-file-name="Xz3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Xz3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-804">
-              <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Z1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/Z1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="175" column="14" lean-forward="false" selection-start-line="175" selection-start-column="14" selection-end-line="175" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Z3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/Z3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="292" column="6" lean-forward="false" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="M3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+            <state relative-caret-position="350">
+              <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -176,8 +591,8 @@
       <file leaf-file-name="GenerateDataForPaper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="244">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -187,7 +602,7 @@
         <entry file="file://$PROJECT_DIR$/SourceCode/Xs3.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="109">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -195,14 +610,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeasurePerformance.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceCode/MeasurePerformance.py">
+      <file leaf-file-name="Util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="597">
+              <caret line="283" column="9" lean-forward="false" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -210,8 +623,8 @@
       <file leaf-file-name="Z0.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2272">
-              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+            <state relative-caret-position="284">
+              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -220,8 +633,28 @@
       <file leaf-file-name="X2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+            <state relative-caret-position="203">
+              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="renameResultFiles.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="81" column="24" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -230,8 +663,18 @@
       <file leaf-file-name="X3.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2271">
-              <caret line="301" column="4" lean-forward="false" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="4" />
+            <state relative-caret-position="427">
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Xr3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceCode/Xr3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="185" column="4" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -248,14 +691,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>allTimes</find>
-      <find>dtww</find>
-      <find>dxx</find>
-      <find>M0</find>
-      <find>M1</find>
-      <find>M2</find>
-      <find>M3</find>
-      <find>M4</find>
       <find>sav</find>
       <find>lbs_g</find>
       <find>.save</find>
@@ -278,6 +713,14 @@
       <find>np.save</find>
       <find>save(</find>
       <find>bboxes</find>
+      <find>findBounding</find>
+      <find>X3</find>
+      <find>loadskips</find>
+      <find>getlb_</find>
+      <find>findb</find>
+      <find>M3</find>
+      <find>finderrors</find>
+      <find>nboxes</find>
     </findStrings>
     <replaceStrings>
       <replace>pathUCRResult+&quot;</replace>
@@ -287,6 +730,8 @@
       <replace>X3</replace>
       <replace>Z3</replace>
       <replace>M3</replace>
+      <replace>Xz3</replace>
+      <replace>Xr3</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -297,24 +742,26 @@
       <list>
         <option value="$PROJECT_DIR$/SourceCode/temputil.py" />
         <option value="$PROJECT_DIR$/SourceCode/Main.py" />
-        <option value="$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py" />
         <option value="$PROJECT_DIR$/SourceCode/M2.py" />
         <option value="$PROJECT_DIR$/SourceCode/M0.py" />
         <option value="$PROJECT_DIR$/SourceCode/M4.py" />
         <option value="$PROJECT_DIR$/SourceCode/M1.py" />
-        <option value="$PROJECT_DIR$/SourceCode/Util.py" />
         <option value="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/SourceCode/Z0.py" />
         <option value="$PROJECT_DIR$/SourceCode/X1.py" />
-        <option value="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X2.py" />
         <option value="$PROJECT_DIR$/SourceCode/Z1.py" />
         <option value="$PROJECT_DIR$/SourceCode/M3.py" />
         <option value="$PROJECT_DIR$/SourceCode/X0.py" />
-        <option value="$PROJECT_DIR$/SourceCode/X3.py" />
         <option value="$PROJECT_DIR$/SourceCode/Xs3.py" />
         <option value="$PROJECT_DIR$/SourceCode/Z3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X2.py" />
+        <option value="$PROJECT_DIR$/SourceCode/X3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/Xz3.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py" />
+        <option value="$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py" />
+        <option value="$PROJECT_DIR$/SourceCode/Xr3.py" />
+        <option value="$PROJECT_DIR$/SourceCode/Util.py" />
+        <option value="$PROJECT_DIR$/SourceCode/Z0.py" />
       </list>
     </option>
   </component>
@@ -367,18 +814,6 @@
               <item name="temp" type="462c0819:PsiDirectoryNode" />
               <item name="renameResultFiles.py" type="8704e2dd:PyFileNode" />
             </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="M3.py" type="8704e2dd:PyFileNode" />
-            </path>
-            <path>
-              <item name="MultivariteDTW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MultivariteDTW" type="462c0819:PsiDirectoryNode" />
-              <item name="SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="Xs3.py" type="8704e2dd:PyFileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -411,7 +846,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GenerateDataForPaper">
+  <component name="RunManager" selected="Python.Z0">
     <configuration name="GenerateDataForPaper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -429,7 +864,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="M3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Util" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -441,12 +876,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/M3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Util.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="MeasurePerformance" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Xr3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -458,12 +893,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/MeasurePerformance.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Xr3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Z1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Z0" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -475,47 +910,50 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Z1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Z0.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Z3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="renameResultFiles" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SourceCode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SourceCode/temp" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MultivariteDTW" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/Z3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Z1" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Z3" />
-      <item index="2" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
-      <item index="3" class="java.lang.String" itemvalue="Python.M3" />
-      <item index="4" class="java.lang.String" itemvalue="Python.MeasurePerformance" />
+      <item index="0" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Xr3" />
+      <item index="2" class="java.lang.String" itemvalue="Python.renameResultFiles" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Util" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Z0" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
-        <item index="1" class="java.lang.String" itemvalue="Python.MeasurePerformance" />
-        <item index="2" class="java.lang.String" itemvalue="Python.M3" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Z3" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Z1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Z0" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GenerateDataForPaper" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Util" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Xr3" />
+        <item index="4" class="java.lang.String" itemvalue="Python.renameResultFiles" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -529,9 +967,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17638889" sideWeight="0.49576783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31805557" sideWeight="0.49576783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38814995" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -539,9 +976,9 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3801242" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34945586" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35066506" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2576389" sideWeight="0.50423217" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3611111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20763889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -576,34 +1013,39 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SourceCode/X3.py</url>
-          <line>275</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SourceCode/Z0.py</url>
-          <line>193</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SourceCode/Z1.py</url>
           <line>180</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SourceCode/X3.py</url>
-          <line>284</line>
+          <line>252</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SourceCode/M3.py</url>
+          <url>file://$PROJECT_DIR$/SourceCode/Xz3.py</url>
           <line>275</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py</url>
-          <line>51</line>
+          <line>52</line>
           <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/Xr3.py</url>
+          <line>308</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/Xr3.py</url>
+          <line>250</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SourceCode/X3.py</url>
+          <line>194</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -613,19 +1055,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="49" />
+      <option name="time" value="62" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceCode/X1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3360">
-          <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Z1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2865">
@@ -640,9 +1074,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3180">
           <caret line="212" column="13" lean-forward="false" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -654,7 +1086,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
+    <entry file="file://$PROJECT_DIR$/SourceCode/Xz3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1725">
           <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
@@ -677,7 +1109,7 @@
         <state relative-caret-position="1320">
           <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,9 +1118,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -867,34 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3180">
-          <caret line="212" column="13" lean-forward="false" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/X0.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -907,22 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-804">
           <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="226" column="16" lean-forward="false" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2271">
-          <caret line="301" column="4" lean-forward="false" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -942,16 +1328,8 @@
         <state relative-caret-position="321">
           <caret line="292" column="6" lean-forward="false" selection-start-line="292" selection-start-column="6" selection-end-line="292" selection-end-column="6" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/M3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,33 +1338,89 @@
         <state relative-caret-position="398">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Xs3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/X3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Xz3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/temp/renameResultFiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="81" column="24" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Xr3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="185" column="4" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/Util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="283" column="9" lean-forward="false" selection-start-line="283" selection-start-column="9" selection-end-line="283" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceCode/GenerateDataForPaper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SourceCode/Z0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2272">
-          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+        <state relative-caret-position="284">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>

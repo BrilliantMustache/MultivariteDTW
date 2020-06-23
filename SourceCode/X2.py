@@ -132,7 +132,7 @@ def dataCollection(datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqu
         for line in f:
             datasize.append(int(line.strip()))
     f.close()
-#    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
+    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
     # #datasets = ["CharacterTrajectories"]
     #
@@ -201,8 +201,8 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
 
     # compute speedups
     setupLBtimes = np.load(
-        pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
-        + "_X0w" + intlist2str(windows) + "_times.npy")
+        pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences) +
+        "_X2w" + intlist2str(windows) + "K" + str(K) + "_times.npy")
     tLB = setupLBtimes[:, 1]
     tCore = []
     skips = []
@@ -239,7 +239,7 @@ if __name__ == "__main__":
     nreferences_g = 20
     windows_g = [20]
     K_g = 4
-#    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
+    dataCollection(datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
 
     dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g, K_g)
 
