@@ -17,20 +17,20 @@ K_g = 4
 TH_g = 1
 period_g = 5
 
-print(">>>>>> Measure prime times.")
-MeasurePerformance.MeasurePrimeTimes \
-    (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, windows_g[0], Ks_g, Qs_g)
+# print(">>>>>> Measure prime times.")
+# MeasurePerformance.MeasurePrimeTimes \
+#     (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, windows_g[0], Ks_g, Qs_g)
 
-print(">>>>>> Start Z9")
-Z9.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
+# print(">>>>>> Start Z9")
+# Z9.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
 
-print(">>>>>> Start X0a")
-X0_a.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
-X0_a.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, machineRatios)
+# print(">>>>>> Start X0a")
+# X0_a.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
+# X0_a.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, machineRatios)
 
-print(">>>>>> Start X0")
-X0.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
-X0.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, machineRatios)
+# print(">>>>>> Start X0")
+# X0.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,maxdim_g,nqueries_g,nreferences_g,windows_g)
+# X0.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, machineRatios)
 
 print(">>>>>> Start X1e")
 X1e.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, THs_g)
@@ -40,9 +40,9 @@ print(">>>>>> Start X1")
 X1.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, THs_g)
 X1.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, THs_g)
 
-print(">>>>>> Start X2")
-X2.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, K_g)
-X2.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, K_g)
+# print(">>>>>> Start X2")
+# X2.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, K_g)
+# X2.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, K_g)
 
 print(">>>>>> Start X3a")
 X3_a.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, Ks_g, Qs_g)

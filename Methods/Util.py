@@ -253,7 +253,7 @@ def intlist2str(A):
 
 def load_M0LBs(pathUCRResult, dataset, maxdim, w, nqueries, nreferences):
     lb_2003 = np.load(pathUCRResult+dataset+"/d"+ str(maxdim) +"/w"+ str(w) + '/' +
-                      str(nqueries) + "X" + str(nreferences) +"_M0_lbs.npy")
+                      str(nqueries) + "X" + str(nreferences) +"_X0_lbs.npy")
     return lb_2003
 
 def getGroundTruth (dataset, maxdim, w, nqueries, nreferences, pathUCRResult='../Results/UCR/'):
