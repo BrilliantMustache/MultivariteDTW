@@ -1,1 +1,1 @@
-__all__ = ["MeasurePerformance", "X0", "X1", "X2", "X3", "Xr3", "Xs3", "Xz3", "Z0", "Z1", "Z3"]
+__all__ = ["MeasurePerformance", "X0_a", "X0", "X1e", "X1", "X2", "X3_a", "X3", "X3ra", "X3r", "X3rsea", "X3rse", "X3s", "X3z", "Z0a", "Z0", "Z1a", "Z1ea", "Z1e", "Z1", "Z3a", "Z3ea", "Z3e", "Z3", "Z9"]

@@ -6,6 +6,8 @@ import glob
 
 import time
 
+import re
+
 
 def calNeighborDistances(A):
     aa = [distance(A[i,:], A[i+1,:]) for i in range(0, len(A)-1)]
@@ -236,7 +238,9 @@ def loadUCRData_norm_xs (path, name, n):
     else:
         cnt = 0
         allData = []
-        for g in glob.glob(path + datasetName + "/*.pkl"):
+        pklfiles = glob.glob(path + datasetName + "/*.pkl")
+        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[0]))
+        for g in pklfiles:
             cnt +=1
             if (cnt > n):
                 break
@@ -288,7 +292,7 @@ def findErrors (dataset, maxdim, w, nqueries, nreferences, results, pathUCRResul
     '''
     errorQueries = []
     resultFile = pathUCRResult+dataset+'/d'+str(maxdim)+'/w'+str(w)+'/' + str(nqueries) + 'X' + \
-                          str(nreferences) + '_NoLB_results.txt'
+                          str(nreferences) + '_Z9_results.txt'
     if not os.path.exists(resultFile):
         getGroundTruth(dataset,maxdim,w,nqueries,nreferences,pathUCRResult)
     groundTruth = readResultFile(resultFile)
