@@ -10,7 +10,7 @@ def geo_mean(iterable):
     a = np.array(iterable)
     return a.prod()**(1.0/len(a))
 
-path='../Results/UCR/'
+path='../Results/fas10_fixed/'
 maxdim_g = 5
 nqueries_g = 3
 nreferences_g = 20
@@ -40,18 +40,47 @@ f.close()
 fnm = path+'_AllDataSets/d'+str(maxdim_g)+'/'+ str(nqueries_g)+'X'+str(nreferences_g)
 speedupFiles = glob.glob(fnm+"_*_speedups*.npy")
 speedupFiles.sort()
+speedupMethods = []
+for f in speedupFiles:
+    words = f.split('/')
+    words = words[-1].split('_')
+    speedupMethods.append(words[1]+words[2])
+
 skipFiles = glob.glob(fnm+'_*_skips*.npy')
 skipFiles.sort()
+skipMethods = []
+for f in skipFiles:
+    words = f.split('/')
+    words = words[-1].split('_')
+    speedupMethods.append(words[1]+words[2])
+
 overheadFiles = glob.glob(fnm+'_*_overheadrate*.npy')
 overheadFiles.sort()
+overheadMethods = []
+for f in overheadFiles:
+    words = f.split('/')
+    words = words[-1].split('_')
+    speedupMethods.append(words[1]+words[2])
+
 
 speedups = np.array([np.load(f) for f in speedupFiles])
 skips = np.array([np.load(f) for f in skipFiles])
 overhead = np.array([np.load(f) for f in overheadFiles])
-alltable = np.array([speedups, skips, overhead])
-np.savetxt(fnm+"_All_speedups.txt", speedups.transpose(), delimiter=',')
-np.savetxt(fnm+"_All_skips.txt", skips.transpose(), delimiter=',')
-np.savetxt(fnm+"_All_overhead.txt", overhead.transpose(), delimiter=',')
+#alltable = np.array([speedups, skips, overhead])
+with open(fnm+"_All_speedups.txt", 'w') as f:
+    for w in speedupMethods:
+        f.write(w+',')
+    f.write('\n')
+f=open(fnm+"_All_speedups.txt",'ab')
+np.savetxt(f, speedups.transpose(), delimiter=',')
+f.close()
+f=open(fnm+"_All_skips.txt",'ab')
+np.savetxt(f, skipMethods, "%s", delimiter=',')
+np.savetxt(f, skips.transpose(), delimiter=',')
+f.close()
+f=open(fnm+"_All_overhead.txt",'ab')
+np.savetxt(f, overhead.transpose(), delimiter=',')
+f.close()
 
 print('Done.')
 #%%%%%%%%%%%%%%%%%%%%%%%%%%

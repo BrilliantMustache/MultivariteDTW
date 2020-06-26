@@ -71,7 +71,8 @@ def DTWDistanceWindowLB_Ordered_xs(i, LBs, DTWdist):
     start = time.time()
     LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
-    dist = DTWdist[i][predId]   # xs: changed
+    dist = DTW(query, references[predId], w)
+#    dist = DTWdist[i][predId]   # xs: changed
     for x in range(1,len(LBSortedIndex)):
         if dist>LBs[LBSortedIndex[x]]:
 #           Use saved DTW distances from baseline
