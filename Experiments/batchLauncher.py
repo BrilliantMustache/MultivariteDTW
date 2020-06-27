@@ -6,9 +6,9 @@ import os
 alldatasetsNameFile = "../Results/UCR/workableDatasets.txt"
 alldatasetsSizeFile = "../Results/UCR/workableDatasets_size.txt"
 with open(alldatasetsNameFile,'r') as f:
-    datasets = f.read().split('\n')
+    datasets = f.read().strip().split('\n')
 with open(alldatasetsSizeFile,'r') as f:
-    datasizes = f.read().split('\n')
+    datasizes = f.read().strip().split('\n')
 datasizes = [int(x) for x in datasizes]
 
 for i in range(len(datasets)):
