@@ -10,21 +10,40 @@ def geo_mean(iterable):
     a = np.array(iterable)
     return a.prod()**(1.0/len(a))
 
-path='../Results/fas10_fixed/'
+path='../Results/UCR/'
+
+####### for all series
 maxdim_g = 5
-nqueries_g = 3
-nreferences_g = 20
+nqueries_g = 0
+nreferences_g = 0
 windows_g = [20]
-allTimes_g = []
+machineRatios = [1, 1]
+THs_g = [0.05, 0.1, 0.2]
+#THs_g = [0.2, 0.4, 0.6, 0.8]
 Ks_g = [4, 6, 8]
 Qs_g = [2, 3, 4]
-THs_g = [0.05,0.1,0.2]
+THs_g_Z3 = [0.8, 0.5, 0.3]
+K_g = 4
+period_g = 5
 
-datasets = []
-with open(path+"allDataSetsNames_no_EigenWorms.txt", 'r') as f:
-    for line in f:
-        datasets.append(line.strip())
-f.close()
+####### for 3X20
+# maxdim_g = 5
+# nqueries_g = 3
+# nreferences_g = 20
+# windows_g = [20]
+# allTimes_g = []
+# Ks_g = [4, 6, 8]
+# Qs_g = [2, 3, 4]
+# THs_g = [0.05,0.1,0.2]
+
+
+
+
+# datasets = []
+# with open(path+"allDataSetsNames_firstTwo.txt", 'r') as f:
+#     for line in f:
+#         datasets.append(line.strip())
+# f.close()
 
 #datasets = ["ArticularyWordRecognition", "AtrialFibrillation"]
 
@@ -52,7 +71,7 @@ skipMethods = []
 for f in skipFiles:
     words = f.split('/')
     words = words[-1].split('_')
-    speedupMethods.append(words[1]+words[2])
+    skipMethods.append(words[1]+words[2])
 
 overheadFiles = glob.glob(fnm+'_*_overheadrate*.npy')
 overheadFiles.sort()
@@ -60,7 +79,7 @@ overheadMethods = []
 for f in overheadFiles:
     words = f.split('/')
     words = words[-1].split('_')
-    speedupMethods.append(words[1]+words[2])
+    overheadMethods.append(words[1]+words[2])
 
 
 speedups = np.array([np.load(f) for f in speedupFiles])
@@ -74,10 +93,19 @@ with open(fnm+"_All_speedups.txt", 'w') as f:
 f=open(fnm+"_All_speedups.txt",'ab')
 np.savetxt(f, speedups.transpose(), delimiter=',')
 f.close()
+
+with open(fnm+"_All_skips.txt", 'w') as f:
+    for w in skipMethods:
+        f.write(w+',')
+    f.write('\n')
 f=open(fnm+"_All_skips.txt",'ab')
-np.savetxt(f, skipMethods, "%s", delimiter=',')
 np.savetxt(f, skips.transpose(), delimiter=',')
 f.close()
+
+with open(fnm+"_All_overhead.txt", 'w') as f:
+    for w in overheadMethods:
+        f.write(w+',')
+    f.write('\n')
 f=open(fnm+"_All_overhead.txt",'ab')
 np.savetxt(f, overhead.transpose(), delimiter=',')
 f.close()

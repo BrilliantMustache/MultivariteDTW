@@ -49,6 +49,9 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
     #         if not os.path.exists(dir):
     #             os.makedirs(dir)
 
+    if os.path.exists(pathUCRResult+'/usabledatasets_nq_nref.txt'):
+        os.remove(pathUCRResult+'/usabledatasets_nq_nref.txt')
+
     for idxset, dataset in enumerate(datasets):
         print(dataset + " Start!")
         assert (datasize[idxset] >= nqueries + nreferences)
@@ -59,8 +62,19 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Size: " + str(size))
         print("Dim: " + str(dim))
         print("Length: " + str(length))
+
         samplequery = stuff[:nqueries]
-        samplereference = stuff[nqueries:nreferences + nqueries]
+        samplereference = stuff[nqueries:nreferences+nqueries]
+
+        ##-------
+        if (nqueries*nreferences==0): # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size*qfrac)]
+            samplereference = stuff[int(size*qfrac):]
+            with open(pathUCRResult+'/usabledatasets_nq_nref.txt','a') as f:
+                f.write(str(int(size*qfrac))+"\n")
+                f.write(str(size-int(size*qfrac))+"\n")
+        ##-------
 
         print(dataset + ":  " + str(nqueries) + " queries, " + str(nreferences) + " references." +
               " Total dtw: " + str(nqueries * nreferences))
@@ -73,11 +87,11 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             toppath = pathUCRResult + dataset + "/d" + str(maxdim) + '/w' + str(w) + "/"
             distanceFileName = pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
                                str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
-            #if not os.path.exists(distanceFileName):
-            distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
-            np.save(distanceFileName, np.array(distances))
-            #else:
-            #    distances = np.load(distanceFileName)
+            if not os.path.exists(distanceFileName):
+                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
+                np.save(distanceFileName, np.array(distances))
+            else:
+                distances = np.load(distanceFileName)
 
             results = [DTWDistanceWindowLB_Ordered_Z9 (ids1, distances,
                                                       query[ids1], reference, windowSize) for ids1 in

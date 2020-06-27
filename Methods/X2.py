@@ -157,6 +157,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Length: "+str(length))
         samplequery = stuff[:nqueries]
         samplereference = stuff[nqueries:nreferences+nqueries]
+        # -------------------------------------------------
+        if (nqueries * nreferences == 0):  # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size * qfrac)]
+            samplereference = stuff[int(size * qfrac):]
+        # -------------------------------------------------
 
         print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
               " Total dtw: "+str(nqueries*nreferences))
@@ -206,8 +212,15 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     tLB = setupLBtimes[:, 1]
     tCore = []
     skips = []
-    totalPairs = nqueries * nreferences
-    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    ## -------------------
+    NPairs = []
+    if nqueries * nreferences == 0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+        for i in range(len(datasets)):
+            actualNQ = actualNQNRs[i][0]
+            actualNR = actualNQNRs[i][1]
+            NPairs.append(actualNQ * actualNR)
+    ## -------------------
     for dataset in datasets:
         results = readResultFile(
             pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(

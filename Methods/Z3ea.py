@@ -127,7 +127,8 @@ def DTWDistanceWindowLB_Ordered_Z3_ea_ (queryID, DTWdist, K, Q, query, reference
         u = [max(segment[:, idd]) for idd in range(dim)]
         bounds.append([l, u])
     M0LBs = getLB_oneQ_qbox(query, references, bounds)
-    LBSortedIndex = sorted(range(len(M0LBs)),key=lambda x: M0LBs[x])
+    LBSortedIndex = np.argsort(M0LBs)
+#    LBSortedIndex = sorted(range(len(M0LBs)),key=lambda x: M0LBs[x])
 
     predId = LBSortedIndex[0]
 #    end = time.time()
@@ -137,32 +138,35 @@ def DTWDistanceWindowLB_Ordered_Z3_ea_ (queryID, DTWdist, K, Q, query, reference
 
 #    start = time.time()
     for x in range(1, len(LBSortedIndex)):
-        if M0LBs[LBSortedIndex[x]] > dist:
-            skip += 1
-        elif M0LBs[LBSortedIndex[x]] >= dist - TH*dist:
-            c_lb = getLB_oneQR(query, references[LBSortedIndex[x]], bboxes, dist)
+        thisrefid = LBSortedIndex[x]
+        if M0LBs[thisrefid] >= dist:
+            skip = len(M0LBs) - x
+            break
+        elif M0LBs[thisrefid] >= dist - TH*dist:
+            c_lb = getLB_oneQR(query, references[thisrefid], bboxes, dist)
             cluster_cals += 1
-            if c_lb <= dist:
-#                dist2 = DTWdist[queryID][LBSortedIndex[x]]
-                dist2 = DTW_a(query, references[LBSortedIndex[x]], W, dist)
+            if c_lb < dist:
+#                dist2 = DTWdist[queryID][thisrefid]
+                dist2 = DTW_a(query, references[thisrefid], W, dist)
                 if dist > dist2:
                     dist = dist2
-                    predId = LBSortedIndex[x]
+                    predId = thisrefid
             else:
-                skip += 1
+                skip = len(M0LBs) - x
+                break
         else:
-            dist2 = DTW_a(query, references[LBSortedIndex[x]], W, dist)
-            #dist2 = DTWdist[queryID][LBSortedIndex[x]]
+            dist2 = DTW_a(query, references[thisrefid], W, dist)
+            #dist2 = DTWdist[queryID][thisrefid]
             if dist > dist2:
                 dist = dist2
-                predId = LBSortedIndex[x]
+                predId = thisrefid
     end = time.time()
     coretime += (end - start)
 
     return dist, predId, skip, coretime, cluster_cals
 
 
-def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], TH=1):
+def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], THs=[1]):
     datasets = []
     # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
     with open(datasetsNameFile, 'r') as f:
@@ -191,6 +195,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Length: " + str(length))
         samplequery = stuff[:nqueries]
         samplereference = stuff[nqueries:nreferences + nqueries]
+        # -------------------------------------------------
+        if (nqueries * nreferences == 0):  # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size * qfrac)]
+            samplereference = stuff[int(size * qfrac):]
+        # -------------------------------------------------
 
         print(dataset + ":  " + str(nqueries) + " queries, " + str(nreferences) + " references." +
               " Total dtw: " + str(nqueries * nreferences))
@@ -210,21 +220,22 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                 distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
-                    print("K="+str(K)+" Q="+str(Q))
-                    results = [DTWDistanceWindowLB_Ordered_Z3_ea_ (ids1, distances, K, Q,
-                                query[ids1], reference, windowSize, TH) for ids1 in range(len(query))]
-                    if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
-                        print('Wrong Results!! Dataset: ' + dataset)
-                        exit()
-                    with open(toppath + str(nqueries) + "X" + str(
-                            nreferences) + "_Z3_ea_K" + str(K) + "Q" + str(Q) + "_results.txt", 'w') as f:
-                        for r in results:
-                            f.write(str(r) + '\n')
+                    for TH in THs:
+                        print("K="+str(K)+" Q="+str(Q)+" TH="+str(TH))
+                        results = [DTWDistanceWindowLB_Ordered_Z3_ea_ (ids1, distances, K, Q,
+                                    query[ids1], reference, windowSize, TH) for ids1 in range(len(query))]
+                        if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
+                            print('Wrong Results!! Dataset: ' + dataset)
+                            exit()
+                        with open(toppath + str(nqueries) + "X" + str(
+                                nreferences) + "_Z3_ea_K" + str(K) + "Q" + str(Q) + "TH"+ str(TH) + "_results.txt", 'w') as f:
+                            for r in results:
+                                f.write(str(r) + '\n')
 
     return 0
 
 
-def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2],machineRatios=[1,1]):
+def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], THs=[1], machineRatios=[1,1]):
     datasets = []
     # with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
     with open(datasetsNameFile, 'r') as f:
@@ -243,18 +254,26 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     # compute speedups
     tCore = []
     skips = []
-    totalPairs = nqueries * nreferences
-    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    ## -------------------
+    NPairs = []
+    if nqueries * nreferences == 0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+        for i in range(len(datasets)):
+            actualNQ = actualNQNRs[i][0]
+            actualNR = actualNQNRs[i][1]
+            NPairs.append(actualNQ * actualNR)
+    ## -------------------
     t1bb = loadt1bb(pathUCRResult, maxdim, window)
 
     for dataset in datasets:
         for K in Ks:
             for Q in Qs:
-                results = readResultFile(
-                    pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
-                        nreferences) + "_Z3_ea_K" + str(K) + "Q"+str(Q)+"_results.txt")
-                tCore.append(sum(results[:, 3]))
-                skips.append(sum(results[:, 2]))
+                for TH in THs:
+                    results = readResultFile(
+                        pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
+                            nreferences) + "_Z3_ea_K" + str(K) + "Q"+str(Q)+ "TH" + str(TH)+ "_results.txt")
+                    tCore.append(sum(results[:, 3]))
+                    skips.append(sum(results[:, 2]))
     tCore = np.array(tCore).reshape((ndatasets, -1))
     skips = np.array(skips).reshape((ndatasets, -1))
 
@@ -265,15 +284,15 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     setting_chosen = np.argmin(tsum,axis=1)
     skips_chosen = np.array( [skips[i,setting_chosen[i]] for i in range(skips.shape[0])] )
 #    overhead = rother* np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])])
-    speedups = (rdtw * t1dtw * NPairs) / tsum_min
+    speedups = (rdtw * t1dtw[0:ndatasets] * NPairs) / tsum_min
 #    overheadrate = overhead/(rdtw * t1dtw * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
+            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + '_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
+            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + '_skipschosen.npy', skips_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
+            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + '_settingchosen.npy', setting_chosen)
 #    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
 #            "_Z3_ea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
 
@@ -292,8 +311,8 @@ if __name__ == "__main__":
     Ks_g = [4, 6, 8]
     Qs_g = [2, 3, 4]
     windows_g = [20]
-    TH_g=1
+    TH_g=[1]
     dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile,datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,TH_g)
-    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
+    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,TH_g)
 
     print("End")

@@ -10,14 +10,11 @@ from Methods.Util import *
 #     the setup time and total lower bound time of each dataset in one overall file in AllDataSets directory: an nd array
 
 
-def getLBs (dataset, query, reference, w, dim, K=4, Q=2):
-    nqueries = len(query)
+def getLBs(query, reference, w, dim, K=4, Q=2):
     length=len(query[0])
-    nrefs=len(reference)
     windowSize = w if w <= length / 2 else int(length / 2)
     print("W=" + str(windowSize) + '\n')
 
-    print("Starting cluster-2003-quick ....")
     #  Calculate slices range
     print("Bounding boxes finding Start!")
     start=time.time()
@@ -216,6 +213,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Length: "+str(length))
         samplequery = stuff[:nqueries]
         samplereference = stuff[nqueries:nreferences+nqueries]
+        # -------------------------------------------------
+        if (nqueries * nreferences == 0):  # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size * qfrac)]
+            samplereference = stuff[int(size * qfrac):]
+        # -------------------------------------------------
 
         print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
               " Total dtw: "+str(nqueries*nreferences))
@@ -227,7 +230,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
-                    lbs_X3, times, nboxes = getLBs (dataset, query, reference, w, dim, K, Q)
+                    lbs_X3, times, nboxes = getLBs(query, reference, w, dim, K, Q)
                     allnboxes.append(nboxes)
                     np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                             + str(nqueries) + "X" + str(nreferences) + "_X3_r_K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
@@ -273,8 +276,15 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     x3tLB = x3setupLBtimes[:,1]
     tCore = []
     skips = []
-    totalPairs = nqueries * nreferences
-    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    ## -------------------
+    NPairs = []
+    if nqueries * nreferences == 0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+        for i in range(len(datasets)):
+            actualNQ = actualNQNRs[i][0]
+            actualNR = actualNQNRs[i][1]
+            NPairs.append(actualNQ * actualNR)
+    ## -------------------
     for dataset in datasets:
         for K in Ks:
             for Q in Qs:
@@ -287,14 +297,14 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     skips = np.array(skips).reshape((ndatasets, -1))
 
     tCorePlus = tCore + x3tLB.reshape((ndatasets,-1))
-    tDTW = np.tile(t1dtw, (skips.shape[1], 1)).transpose() * ((skips - totalPairs) * -1)
+    tDTW = np.tile(t1dtw[0:ndatasets], (skips.shape[1], 1)).transpose() * ((skips - NPairs) * -1)
     tsum = rother * tCorePlus + rdtw * tDTW
     tsum_min = np.min(tsum, axis=1)
     setting_chosen = np.argmin(tsum,axis=1)
     skips_chosen = np.array( [skips[i,setting_chosen[i]] for i in range(skips.shape[0])] )
     overhead = rother* np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])])
-    speedups = (rdtw * t1dtw * NPairs) / tsum_min
-    overheadrate = overhead/(rdtw * t1dtw * NPairs)
+    speedups = (rdtw * t1dtw[0:ndatasets] * NPairs) / tsum_min
+    overheadrate = overhead/(rdtw * t1dtw[0:ndatasets] * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
             "_X3_r_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)

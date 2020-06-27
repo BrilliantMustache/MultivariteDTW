@@ -51,19 +51,22 @@ def DTWDistanceWindowLB_Ordered_Z0 (i, DTWdist, query, references, W):
         u = [max(segment[:, idd]) for idd in range(dim)]
         bounds.append([l, u])
     LBs = getLB_oneQ_qbox(query, references, bounds)
-    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
+    LBSortedIndex = np.argsort(LBs)
+#    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
-    dist = DTWdist[i][predId]
+    dist = DTW (query, references[predId], W)
     for x in range(1,len(LBSortedIndex)):
-        if dist>LBs[LBSortedIndex[x]]:
+        thisrefid = LBSortedIndex[x]
+        if dist>LBs[thisrefid]:
 #           Use saved DTW distances from baseline for quick experiment
-#            dist2 = DTWdist[i][LBSortedIndex[x]]
-            dist2 = DTW_a(query,references[LBSortedIndex[x]],W,dist)
+#            dist2 = DTWdist[i][thisrefid]
+            dist2 = DTW_a(query,references[thisrefid],W,dist)
             if dist>dist2:
                 dist = dist2
-                predId = LBSortedIndex[x]
+                predId = thisrefid
         else:
-            skip = skip + 1
+            skip = len(LBs) - x
+            break
     end = time.time()
     coreTime = end - start
 #    LBs_g.append(LBs)
@@ -106,6 +109,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Length: "+str(length))
         samplequery = stuff[:nqueries]
         samplereference = stuff[nqueries:nreferences+nqueries]
+        # -------------------------------------------------
+        if (nqueries * nreferences == 0):  # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size * qfrac)]
+            samplereference = stuff[int(size * qfrac):]
+        # -------------------------------------------------
 
         print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
               " Total dtw: "+str(nqueries*nreferences))
@@ -175,8 +184,15 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     # compute speedups
     tCore = []
     skips = []
-    totalPairs = nqueries*nreferences
-    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    ## -------------------
+    NPairs = []
+    if nqueries * nreferences == 0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+        for i in range(len(datasets)):
+            actualNQ = actualNQNRs[i][0]
+            actualNR = actualNQNRs[i][1]
+            NPairs.append(actualNQ * actualNR)
+    ## -------------------
     for dataset in datasets:
         results = readResultFile(pathUCRResult + dataset + '/d' + str(maxdim) + "/w"+ str(windows[0]) + "/" + str(nqueries) + "X" + str(nreferences)
             + "_Z0_a" + "_results.txt")
@@ -184,7 +200,7 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
         skips.append(sum(results[:,2]))
     tCore = np.array(tCore)
 #    tDTW = t1dtw*(NPairs - np.array(skips))
-    speedups = (rdtw*t1dtw*NPairs)/(rother*tCore)
+    speedups = (rdtw*t1dtw[0:ndatasets]*NPairs)/(rother*tCore)
 #    overheadrate = (rother*tCore)/(rdtw*t1dtw*NPairs)
 
     np.save(pathUCRResult+"_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +

@@ -1,12 +1,11 @@
 from Methods.Z0 import getLB_oneQ_qbox
 from Methods.X1 import *
 
-def DTWDistanceWindowLB_Ordered_Z1_a (queryID, DTWdist, TH, P, query, references, W):
+def DTWDistanceWindowLB_Ordered_Z1_a(TH, P, query, references, W):
     '''
     Compute the DTW distance between a query series and a set of reference series.
-    :param i: the query ID number
-    :param DTWdist: precomputed DTW distances (for fast experiments)
     :param TH: the triggering threshold for the expensive filter to take off
+    :param P: the period length in TIP
     :param query: the query series
     :param references: a list of reference series
     :param W: half window size
@@ -27,7 +26,8 @@ def DTWDistanceWindowLB_Ordered_Z1_a (queryID, DTWdist, TH, P, query, references
         u = [max(segment[:, idd]) for idd in range(dim)]
         bounds.append([l, u])
     LBs = getLB_oneQ_qbox(query, references, bounds)
-    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
+    LBSortedIndex = np.argsort(LBs)
+#    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
 #    end=time.time()
 #    coretime += (end - start)
@@ -36,24 +36,27 @@ def DTWDistanceWindowLB_Ordered_Z1_a (queryID, DTWdist, TH, P, query, references
 
 #    start = time.time()
     for x in range(1, len(LBSortedIndex)):
-        if LBs[LBSortedIndex[x]] > dist:
-            skips += 1
-        elif LBs[LBSortedIndex[x]] >= dist - TH*dist:
-            p_lb = tiBounds_top_calP_list_comp(query, references[LBSortedIndex[x]], P, W, dxx)
+        thisrefid = LBSortedIndex[x]
+        if LBs[thisrefid] >= dist:
+            skips = len(LBs) - x
+            break
+        elif LBs[thisrefid] >= dist - TH*dist:
+            p_lb = tiBounds_top_calP_list_comp(query, references[thisrefid], P, W, dxx)
             p_cals += 1
-            if p_lb <= dist:
-#                dist2 = DTWdist[queryID][LBSortedIndex[x]]
-                dist2 = DTW_a(query, references[LBSortedIndex[x]], W, dist)
-                if dist > dist2:
+            if p_lb < dist:
+#                dist2 = DTWdist[queryID][thisrefid]
+                dist2 = DTW_a(query, references[thisrefid], W, dist)
+                if dist >= dist2:
                     dist = dist2
-                    predId = LBSortedIndex[x]
+                    predId = thisrefid
             else:
-                skips += 1
+                skips = len(LBs) -x
+                break
         else:
-            dist2 = DTW_a(query, references[LBSortedIndex[x]], W, dist)
+            dist2 = DTW_a(query, references[thisrefid], W, dist)
             if dist > dist2:
                 dist = dist2
-                predId = LBSortedIndex[x]
+                predId = thisrefid
 
     end = time.time()
     coretime += (end - start)
@@ -90,6 +93,12 @@ def dataCollection (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,
         print("Length: "+str(length))
         samplequery = stuff[:nqueries]
         samplereference = stuff[nqueries:nreferences+nqueries]
+        # -------------------------------------------------
+        if (nqueries * nreferences == 0):  # all series to be used
+            qfrac = 0.3
+            samplequery = stuff[:int(size * qfrac)]
+            samplereference = stuff[int(size * qfrac):]
+        # -------------------------------------------------
 
         print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
               " Total dtw: "+str(nqueries*nreferences))
@@ -102,15 +111,8 @@ def dataCollection (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,
             toppath = pathUCRResult + dataset + "/d" + str(maxdim) + '/w' + str(w)+"/"
             distanceFileName = pathUCRResult+"" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
                                str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
-            if not os.path.exists(distanceFileName):
-                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
-                np.save(distanceFileName, np.array(distances))
-            else:
-                distances = np.load(distanceFileName)
-#            dists = [[DTW(s1, s2, windowSize) for s2 in reference] for s1 in query]
             for TH in THs:
-                results = [DTWDistanceWindowLB_Ordered_Z1_a (ids1, distances, TH,
-                            period_g, query[ids1], reference, windowSize) for ids1 in range(len(query))]
+                results = [DTWDistanceWindowLB_Ordered_Z1_a(TH, period_g, query[ids1], reference, windowSize) for ids1 in range(len(query))]
                 if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
                     print('Wrong Results!! Dataset: ' + dataset)
                     exit()
@@ -150,8 +152,15 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     # compute speedups
     tCore = []
     skips = []
-    totalPairs = nqueries * nreferences
-    NPairs = np.array([totalPairs for i in range(ndatasets)])
+    ## -------------------
+    NPairs = []
+    if nqueries * nreferences == 0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+        for i in range(len(datasets)):
+            actualNQ = actualNQNRs[i][0]
+            actualNR = actualNQNRs[i][1]
+            NPairs.append(actualNQ * actualNR)
+    ## -------------------
     for dataset in datasets:
         for TH in THs:
             results = readResultFile(
@@ -169,7 +178,7 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     setting_chosen = np.argmin(tsum, axis=1)
     skips_chosen = np.array( [skips[i,setting_chosen[i]] for i in range(skips.shape[0])] )
 #    overhead = rother* np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])])
-    speedups = (rdtw*t1dtw * NPairs) / tsum_min
+    speedups = (rdtw*t1dtw[0:ndatasets] * NPairs) / tsum_min
 #    overheadrate = overhead/(rdtw*t1dtw * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +

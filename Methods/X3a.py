@@ -17,151 +17,95 @@ def getLBs (dataset, query, reference, w, dim, K=4, Q=2):
     windowSize = w if w <= length / 2 else int(length / 2)
     print("W=" + str(windowSize) + '\n')
 
-    print("Starting cluster-2003-quick ....")
     #  Calculate slices range
     print("Bounding boxes finding Start!")
     start=time.time()
-    allboxes = [findBoundingBoxes_reuse (np.array(ref), K, windowSize, Q) for ref in reference]
+    bboxes = [findBoundingBoxes(np.array(ref), K, windowSize, Q) for ref in reference]
     end=time.time()
     nboxes=0
     for r in range(len(reference)):
-        uniqPointsBoxes = allboxes[r]['boxes']
-        nboxes += sum([len(p) for p in uniqPointsBoxes])
+        boxes = bboxes[r]
+        nboxes += sum([len(p) for p in boxes])
     setuptime2003cluster_q=end-start
     print("Bounding boxes Done!")
 
     #  Calculate Lower Bounds
     print("Cluster-2003-quick lower bounds. Start!")
     start=time.time()
-    lbs_2003_cluster_q = [getLB_oneQ (query[ids1], reference, dim, allboxes) for ids1 in range(len(query))]
+    lbs_2003_cluster_q = [getLB_oneQ (query[ids1], reference, dim, bboxes) for ids1 in range(len(query))]
     end=time.time()
     lbtime2003cluster_q=end-start
     # np.save(pathUCRResult+ dataset + "/" + str(w) + "/" + str(nqueries_g) + "X" +
-    #         str(nreferences_g) + "_X3"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_lbs.npy", lbs_2003_cluster_q)
+    #         str(nreferences_g) + "_X3_a_"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_lbs.npy", lbs_2003_cluster_q)
     print("Cluster-2003-quick Done!" + '\n')
 
 #    thistimes = [setuptime2003cluster_q, lbtime2003cluster_q]
 
 #    np.save(pathUCRResult+ dataset + "/" + str(w) + "/" + str(nqueries_g) + "X" +
-#            str(nreferences_g) + "_X3"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_times.npy", thistimes)
+#            str(nreferences_g) + "_X3_a_"+ "K"+ intlist2str(K) +"Q" + intlist2str(Q) + "_times.npy", thistimes)
 
 #    allTimes_g.append([setuptime2003cluster_q, lbtime2003cluster_q])
 
     return lbs_2003_cluster_q, [setuptime2003cluster_q, lbtime2003cluster_q], nboxes
 
-def findBoxes_onepoint (awindow, K, Q):
-    '''
-    Find the bounding boxes of one window
-    :param awindow: an array of points
-    :return: an array of boxes
-    '''
-    cellMembers = {}
-    bboxes_oneref = []
-    dims = len(awindow[0])
-
-    overall_ls = [min(np.array(awindow)[:, idd]) for idd in range(dims)]
-    overall_us = [max(np.array(awindow)[:, idd]) for idd in range(dims)]
-    cells = [1 + int((overall_us[idd] - overall_ls[idd]) * Q) for idd in range(dims)]
-    celllens = [(overall_us[idd] - overall_ls[idd]) / cells[idd] + 0.00000001 for idd in range(dims)]
-    for e in awindow:
-        thiscell = str([int((e[idd] - overall_ls[idd]) / celllens[idd]) for idd in range(dims)])
-        if thiscell in cellMembers:
-            cellMembers[thiscell].append(e)
-        else:
-            cellMembers[thiscell] = [e]
-    for g in cellMembers:
-        l = [min(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
-        u = [max(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
-        bboxes_oneref.append([l, u])
-    if len(bboxes_oneref) > K:
-        # combine all boxes except the first K-1 boxes
-        sublist = bboxes_oneref[K - 1:]
-        combinedL = [min([b[0][idd] for b in sublist]) for idd in range(dims)]
-        combinedU = [max([b[1][idd] for b in sublist]) for idd in range(dims)]
-        bboxes_oneref = bboxes_oneref[0:K - 1]
-        bboxes_oneref.append([combinedL, combinedU])
-    return bboxes_oneref
-
-def inBoxes (p, bboxes):
-    '''
-    Check whether point p falls into boxes
-    :param p:
-    :param boxes: [ [several(dim) lowends] [several(dim) highends] ... ]
-    :return: True or False
-    '''
-    dim = len(p)
-    for box in bboxes:
-        rst = [p[idd] > box[1][idd] or p[idd] < box[0][idd] for idd in range(dim)]
-        s = sum(rst)
-        if (s<1):
-            return True
-    return False
-
-def findBoundingBoxes_reuse (ref, K, W, Q):
+def findBoundingBoxes (ref, K, W, Q):
     '''
     find the K bounding boxes for each window in ref with quantizations
-    :param ref: a data frame holding a reference serie
+    :param ref: a data frame holding a reference series
     :param K: the number of bounding boxes
     :param W: the window size
     :param Q: the number of cells in each dimension
-    :return: a dictionary allboxes_oneref = {boxes: [ [several(dim) lowends] [several(dim) highends] ],
-        indices: [ index, index, ...]}  So, the boxes of point i on this ref are:
-        allBoxes_oneref.boxes[allBoxes_oneref.indices[i]]
+    :return: a len(ref)*K array with each element [ [dim low ends] [dim high ends]]
     '''
     length = ref.shape[0]
-    indices = []
-    bboxes = []
-
-    # first point on ref
-    idx=0
-    awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W if idx + W <= length else length)]
-    previousBoxes = findBoxes_onepoint(awindow, K, Q)
-    bboxes.append(previousBoxes)
-    previousIndices = idx
-    indices.append(previousIndices)
-
-    # the rest
-    for idx in range(1,length):
-        if inBoxes(ref[idx], previousBoxes):
-            indices.append(previousIndices)
-        else:
-            awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W if idx + W <= length else length)]
-            previousBoxes = findBoxes_onepoint(awindow, K, Q)
-            bboxes.append(previousBoxes)
-            previousIndices += 1
-            indices.append(previousIndices)
-
-    result = {'boxes': bboxes, 'indices': indices}
-    return result
+    dims = ref.shape[1]
+    allBoxes = []
+    for idx in range(length):
+#        nonEmptyCells = {}
+        cellMembers = {}
+        bboxes = []
+        awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W if idx + W <= length else length)]
+        overall_ls = [min(np.array(awindow)[:,idd]) for idd in range(dims)]
+        overall_us = [max(np.array(awindow)[:, idd]) for idd in range(dims)]
+        cells = [1+int((overall_us[idd] - overall_ls[idd])*Q) for idd in range(dims)]
+        celllens = [ (overall_us[idd] - overall_ls[idd])/cells[idd]+0.00000001 for idd in range(dims) ]
+        for e in awindow:
+            thiscell = str([int( (e[idd]-overall_ls[idd])/celllens[idd]) for idd in range(dims)])
+            if thiscell in cellMembers:
+                cellMembers[thiscell].append(e)
+            else:
+                cellMembers[thiscell] = [e]
+#        if len(cellMembers.keys())>K:
+#            bboxes=[[overall_ls, overall_us]]
+#        else:
+        for g in cellMembers:
+            l = [min(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
+            u = [max(np.array(cellMembers[g])[:, idd]) for idd in range(dims)]
+            bboxes.append([l, u])
+        if len(bboxes)>K:
+            # combine all boxes except the first K-1 boxes
+            sublist = bboxes[K-1:]
+            combinedL = [min([ b[0][idd] for b in sublist]) for idd in range(dims)]
+            combinedU = [max([b[1][idd] for b in sublist]) for idd in range(dims)]
+            bboxes= bboxes[0:K-1]
+            bboxes.append([combinedL, combinedU])
+        allBoxes.append(bboxes)
+    return np.array(allBoxes)
 
 
 def getLB_oneQ (X, others, dim, sl_bounds):
-    '''
-    Get the lower bound of one series X to many references (others) based on the bounding boxes of the references.
-    :param X:
-    :param others:
-    :param dim:
-    :param sl_bounds: an array. each element is a dictionary corresponding to one reference series:
-              {boxes: [ [[lows][highs]] [[lows][highs]] ...],  indices: [...]}
-    :return:
-    '''
+    #  X is one series, others is all references, dim is dimensions, sl_bounds has all the bounding boxes of all reference series
     lbs = []
     for idy, s2 in enumerate(others):
         temps = []
         LB_sum = 0
-        boxstructOneY = sl_bounds[idy]
-        slboundsOneY = boxstructOneY['boxes']
-        indicesOneY = boxstructOneY['indices']
+        slboundsOneY = sl_bounds[idy]
         for idx, x in enumerate(X):
-            try:
-                boxes = slboundsOneY[indicesOneY[idx]]
-            except:
-                print('wrong')
-            numBoxes = len(boxes)
+            numBoxes = len(slboundsOneY[idx])
             oneYbounds=[]
             for idbox in range(numBoxes):
-                l = boxes[idbox][0]
-                u = boxes[idbox][1]
+                l = slboundsOneY[idx][idbox][0]
+                u = slboundsOneY[idx][idbox][1]
                 temp = math.sqrt(sum([(x[idd]-u[idd]) ** 2 if (x[idd] > u[idd]) else (l[idd]-x[idd])**2 if (x[idd] < l[idd]) else 0
                                for idd in range(dim)]))
                 oneYbounds.append(temp)
@@ -236,7 +180,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                     lbs_X3, times, nboxes = getLBs (dataset, query, reference, w, dim, K, Q)
                     allnboxes.append(nboxes)
                     np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
-                            + str(nqueries) + "X" + str(nreferences) + "_X3_ra_K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
+                            + str(nqueries) + "X" + str(nreferences) + "_X3_a_K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
                     allTimes.append(times)
                     results = get_skips_a(w, lbs_X3, query, reference)
                     if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
@@ -244,17 +188,17 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                         exit()
                     with open(pathUCRResult + dataset + '/' + 'd' + str(maxdim) + '/w' + str(w) + "/" + str(
                             nqueries) + "X" + str(
-                            nreferences) + "_" + "X3_ra_K" + str(K) + "Q" + str(Q) + "_results" + ".txt", 'w') as f:
+                            nreferences) + "_" + "X3_a_K" + str(K) + "Q" + str(Q) + "_results" + ".txt", 'w') as f:
                         for r in results:
                             f.write(str(r) + '\n')
         print(dataset+" Done!"+'\n'+'\n')
 
     np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-            + "_X3_ra_"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", np.array(allTimes))
+            + "_X3_a_"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_times.npy", np.array(allTimes))
     np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-            + "_X3_ra_"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_nboxes.npy", np.array(allnboxes))
+            + "_X3_a_"+"w" + intlist2str(windows)+ "K"+intlist2str(Ks)+"Q"+intlist2str(Qs) + "_nboxes.npy", np.array(allnboxes))
 
-    print('Data collection completed.')
+    print("Data collection is done.")
 
 def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2],machineRatios=[1,1]):
     datasets = []
@@ -275,7 +219,7 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     # compute speedups
     x3setupLBtimes = np.load(
         pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
-        + "_X3_ra_w" + intlist2str(windows) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs)+"_times.npy")
+        + "_X3_a_w" + intlist2str(windows) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs)+"_times.npy")
     x3tLB = x3setupLBtimes[:,1]
     tCore = []
     skips = []
@@ -293,7 +237,7 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
             for Q in Qs:
                 results = readResultFile(
                     pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
-                        nreferences) + "_X3_ra_K" + str(K) + "Q"+str(Q)+"_results.txt")
+                        nreferences) + "_X3_a_K" + str(K) + "Q"+str(Q)+"_results.txt")
                 tCore.append(sum(results[:, 3]))
                 skips.append(sum(results[:, 2]))
     tCore = np.array(tCore).reshape((ndatasets, -1))
@@ -310,13 +254,13 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     #overheadrate = overhead/(rdtw * t1dtw * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_ra_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
+            "_X3_a_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_ra_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
+            "_X3_a_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_skipschosen.npy', skips_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_ra_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
+            "_X3_a_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_settingchosen.npy', setting_chosen)
     #np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-    #        "_X3_ra_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
+    #        "_X3_a_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
 
     return 0
 
@@ -333,7 +277,6 @@ if __name__ == "__main__":
     nreferences_g = 20
     Ks_g = [4, 6, 8]
     Qs_g = [2, 3, 4]
-    #windows_g = [20]
     windows_g = [20]
     dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)
     dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g)

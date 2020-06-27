@@ -75,7 +75,7 @@ def loadSkips (datasets, maxdim, windowSizes, nqueries, nrefs):
     for dataset in datasets:
         for idx, w in enumerate(windowSizes):
             with open(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"+
-                              str(nqueries)+"X"+str(nrefs)+ "_X0" + "_results.txt", 'r') as f:
+                              str(nqueries)+"X"+str(nrefs)+ "_X0_a" + "_results.txt", 'r') as f:
                 temp = f.readlines()
                 temps = [l.strip()[1:-1] for l in temp]
                 results = [t.split(',') for t in temps]
@@ -119,13 +119,14 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         print("Dim: "+str(dim))
         print("Length: "+str(length))
         samplequery = stuff[:nqueries]
-        samplereference = stuff[nqueries:nreferences+nqueries]
-        # -------------------------------------------------
-        if (nqueries * nreferences == 0):  # all series to be used
+        samplereference = stuff[nqueries:nreferences + nqueries]
+
+        #-------------------------------------------------
+        if (nqueries*nreferences==0): # all series to be used
             qfrac = 0.3
-            samplequery = stuff[:int(size * qfrac)]
-            samplereference = stuff[int(size * qfrac):]
-        # -------------------------------------------------
+            samplequery = stuff[:int(size*qfrac)]
+            samplereference = stuff[int(size*qfrac):]
+        #-------------------------------------------------
 
         print(dataset+":  "+ str(nqueries)+" queries, "+ str(nreferences)+ " references." +
               " Total dtw: "+str(nqueries*nreferences))
@@ -136,20 +137,20 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         for w in windows:
             lbs_2003, times = getLBs (dataset, query, reference, w, dim)
             np.save(pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
-                    + str(nqueries) + "X" + str(nreferences) + "_X0_lbs.npy", lbs_2003)
+                    + str(nqueries) + "X" + str(nreferences) + "_X0_a_lbs.npy", lbs_2003)
             allTimes.append(times)
-            results=get_skips (dataset, maxdim, w, lbs_2003, query, reference)
-            if findErrors(dataset,maxdim,w,nqueries,nreferences,results,pathUCRResult):
+            results= get_skips_a(w, lbs_2003, query, reference)
+            if findErrors(dataset,maxdim,w,nqueries, nreferences,results,pathUCRResult):
                 print('Wrong Results!! Dataset: '+dataset)
                 exit()
             with open(pathUCRResult + dataset + '/' + 'd' + str(maxdim) + '/w'+ str(w) + "/" + str(nqueries) + "X" + str(
-                    nreferences) + "_" + "X0" + "_results" + ".txt", 'w') as f:
+                    nreferences) + "_" + "X0_a" + "_results" + ".txt", 'w') as f:
                 for r in results:
                     f.write(str(r) + '\n')
         print(dataset+" Done!"+'\n'+'\n')
 
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/"+ str(nqueries) + "X" + str(nreferences)
-            + "_X0_w" + intlist2str(windows) + "_times.npy", allTimes)
+            + "_X0_a_w" + intlist2str(windows) + "_times.npy", allTimes)
     return 0
 
 def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], machineRatios=[1,1]):
@@ -179,43 +180,46 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
 
 #    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
-    ndatasets = len(datasets)
-
-    # compute speedups
-    setupLBtimes = np.load(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/"+ str(nqueries) + "X" + str(nreferences)
-            + "_X0_w" + intlist2str(windows) + "_times.npy")
-    tLB = setupLBtimes[:,1]
-    tCore = []
-    skips = []
     ## -------------------
-    NPairs = []
-    if nqueries * nreferences == 0:
-        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1, 2))
+    NPairs=[]
+    if nqueries*nreferences==0:
+        actualNQNRs = np.loadtxt(pathUCRResult + '/usabledatasets_nq_nref.txt').reshape((-1,2))
         for i in range(len(datasets)):
             actualNQ = actualNQNRs[i][0]
             actualNR = actualNQNRs[i][1]
             NPairs.append(actualNQ * actualNR)
     ## -------------------
-    for dataset in datasets:
+
+    ndatasets = len(datasets)
+
+    # compute speedups
+    setupLBtimes = np.load(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/"+ str(nqueries) + "X" + str(nreferences)
+            + "_X0_a_w" + intlist2str(windows) + "_times.npy")
+    tLB = setupLBtimes[:,1]
+    tCore = []
+    skips = []
+
+    #---------get tCore, skips of all datasets---------------
+    for didx, dataset in enumerate(datasets):
         results = readResultFile(pathUCRResult + dataset + '/d' + str(maxdim) + "/w"+ str(windows[0]) + "/" + str(nqueries) + "X" + str(nreferences)
-            + "_X0" + "_results.txt")
+            + "_X0_a" + "_results.txt")
         tCore.append(sum(results[:,3]))
         skips.append(sum(results[:,2]))
     tCore = np.array(tCore)
-    tDTW = t1dtw[0:ndatasets]*(NPairs - np.array(skips))
-    speedups = (rdtw*t1dtw[0:ndatasets]*NPairs)/(rother*(tLB+tCore)+rdtw*tDTW)
-    overheadrate = (rother*(tLB+tCore))/(rdtw*t1dtw[0:ndatasets]*NPairs)
+    #------------------------
+
+    speedups = (rdtw*t1dtw[0:ndatasets]*NPairs)/(rother*(tLB+tCore))
 
     np.save(pathUCRResult+"_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X0_w"+str(window)+'_speedups.npy', speedups)
+            "_X0_a_w"+str(window)+'_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X0_w" + str(window) + '_skips.npy', skips)
-    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X0_w" + str(window) + '_overheadrate.npy', overheadrate)
+            "_X0_a_w" + str(window) + '_skips.npy', skips)
+    #np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+    #        "_X0_a_w" + str(window) + '_overheadrate.npy', overheadrate)
     return 0
 
 ########################
-# collect X0's data
+# collect X0_a's data
 if __name__ == "__main__":
     datapath= "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
     pathUCRResult = "../Results/UCR/"

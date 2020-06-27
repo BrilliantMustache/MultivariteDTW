@@ -65,23 +65,26 @@ def DTW_a(s1, s2, windowSize, bestdist):
             return d
     return DTW[len(s1)-1, len(s2)-1]
 
-def DTWDistanceWindowLB_Ordered_xs(i, LBs, DTWdist):
+def DTWDistanceWindowLB_Ordered_xs(queryID, LBs, DTWdist):
     skips = 0
 
     start = time.time()
-    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
+    LBSortedIndex = np.argsort(LBs)
+    #LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
-    dist = DTW(query, references[predId], w)
-#    dist = DTWdist[i][predId]   # xs: changed
+#    dist = DTW(query, references[predId], w)
+    dist = DTWdist[queryID][predId]   # xs: changed
     for x in range(1,len(LBSortedIndex)):
-        if dist>LBs[LBSortedIndex[x]]:
+        thisrefid = LBSortedIndex[x]
+        if dist>LBs[thisrefid]:
 #           Use saved DTW distances from baseline
-            dist2 = DTWdist[i][LBSortedIndex[x]]
-            if dist>=dist2:
+            dist2 = DTWdist[queryID][thisrefid]
+            if dist>dist2:
                 dist = dist2
-                predId = LBSortedIndex[x]
+                predId = thisrefid
         else:
-            skips = skips + 1
+            skips = len(LBSortedIndex) - x
+            break
     end = time.time()
     coreTime = end - start
     return dist, predId, skips, coreTime
@@ -90,19 +93,20 @@ def DTWDistanceWindowLB_Ordered_xs_a(LBs, w, query, references):
     skips = 0
 
     start = time.time()
-    LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
+    LBSortedIndex = np.argsort(LBs)
+    #LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
     dist = DTW(query, references[predId], w)
     for x in range(1,len(LBSortedIndex)):
-        if dist>LBs[LBSortedIndex[x]]:
-#           Use saved DTW distances from baseline
-            dist2 = DTW_a(query, references[LBSortedIndex[x]],w, dist)
-            #dist2 = DTW(query, references[LBSortedIndex[x]],w)
+        thisrefid = LBSortedIndex[x]
+        if dist>LBs[thisrefid]:
+            dist2 = DTW_a(query, references[thisrefid],w, dist)
             if dist>dist2:
                 dist = dist2
-                predId = LBSortedIndex[x]
+                predId = thisrefid
         else:
-            skips = skips + 1
+            skips = len(LBs) - x
+            break
     end = time.time()
     coreTime = end - start
     return dist, predId, skips, coreTime
@@ -124,21 +128,13 @@ def get_skips (dataset, maxdim, w, lbs, queries, references):
         results.append(DTWDistanceWindowLB_Ordered_xs(ids1, lbs[ids1], distances))
     return results
 
-def get_skips_a (dataset, maxdim, w, lbs, queries, references):
+def get_skips_a(w, lbs, queries, references):
     nqueries=len(queries)
-    nrefs=len(references)
-    print("W="+str(w)+'\n')
-    distanceFileName = "../Results/UCR/" + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nqueries)\
-                       +"X"+str(nrefs)+"_NoLB_DTWdistances.npy"
-    if not os.path.exists(distanceFileName):
-        distances = [[DTW(s1, s2, w) for s2 in references] for s1 in queries]
-        np.save(distanceFileName,np.array(distances))
-    else:
-        distances = np.load(distanceFileName)
 
     results =[]
     for ids1 in range(nqueries):
-        results.append(DTWDistanceWindowLB_Ordered_xs_a(lbs[ids1], w, queries[ids1], references))
+        rst = DTWDistanceWindowLB_Ordered_xs_a(lbs[ids1], w, queries[ids1], references)
+        results.append(rst)
     return results
 
 
@@ -235,7 +231,9 @@ def loadUCRData_norm_xs (path, name, n):
 
     datasetName = name
     if n==0:
-        allData = [normalize(pd.read_pickle(g).fillna(0)) for g in glob.glob(path + datasetName + "/*.pkl")]
+        pklfiles = glob.glob(path + datasetName + "/*.pkl")
+        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[0]))
+        allData = [normalize(pd.read_pickle(g).fillna(0)) for g in pklfiles]
     else:
         cnt = 0
         allData = []

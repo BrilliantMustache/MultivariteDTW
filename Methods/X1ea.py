@@ -7,15 +7,17 @@ from Methods.Util import *
 #     the DTW distances and skips and coreTime in each individual directory: a text file
 #     the setup time and total lower bound time of each dataset in one overall file in AllDataSets directory: an nd array
 
-def tiBounds_top_calP_list_comp(X, Y, W, P, dxx):
+def tiBounds_top_calP_list_comp_eb(X, Y, W, P, dxx, dist):
     # Same as tiBounds except that the true distances are calculated in every P samples of X
+    # And early abondoning is used.
     Xlen = list(X.shape)[0]
     Ylen = list(Y.shape)[0]
 
     upperBounds = np.zeros([Xlen, W*2+1])
     lowerBounds = np.zeros([Xlen, W*2+1])
-    overallLowerBounds = np.zeros(Xlen)
+#    overallLowerBounds = np.zeros(Xlen)
 
+    lbrst = 0
     for t in range(0, Xlen):
         startIdx = 0 if t > W else W - t
         if t % P == 0:
@@ -25,7 +27,7 @@ def tiBounds_top_calP_list_comp(X, Y, W, P, dxx):
 
             upperBounds[t, startIdx:startIdx + tp - lw] = dxyInit
             lowerBounds[t, startIdx:startIdx + tp - lw] = dxyInit
-            overallLowerBounds[t] = np.amin(dxyInit)
+            lbrst+= np.amin(dxyInit)
         else:
             startIdx = 0 if t > W else W - t
             lr = 0 if t < W else t - W
@@ -46,7 +48,7 @@ def tiBounds_top_calP_list_comp(X, Y, W, P, dxx):
                 temp = distance(X[t, :], Y[ur, :])
                 upperBounds[t, startIdx + idx + 1] = temp
                 lowerBounds[t, startIdx + idx + 1] = temp
-                overallLowerBounds[t] = np.amin(lowerBounds[t, startIdx:startIdx + idx + 2])
+                lbrst+= np.amin(lowerBounds[t, startIdx:startIdx + idx + 2])
             else:
                 upperBounds[t, startIdx:startIdx + idx + 2] = [upperBounds[t_1, startIdx_lr + i] + thisdxx for i in
                                                                range(lr, ur + 1)]
@@ -55,9 +57,11 @@ def tiBounds_top_calP_list_comp(X, Y, W, P, dxx):
                      else 0 if thisdxx < upperBounds[t_1, startIdx_lr + i] else thisdxx - upperBounds[
                         t_1, startIdx_lr + i]
                      for i in range(lr, ur + 1)]
-                overallLowerBounds[t] = np.amin(lowerBounds[t, startIdx:startIdx + idx + 2])
+                lbrst+= np.amin(lowerBounds[t, startIdx:startIdx + idx + 2])
+        if lbrst>=dist:
+            return lbrst   # early abandoning
     #------------
-    return sum(overallLowerBounds)
+    return lbrst
 
 def DTWwnd (s1, s2, windowSize):
     '''
@@ -93,7 +97,7 @@ def DTWwnd (s1, s2, windowSize):
 
     return DTW[len(s1)-1, len(s2)-1], dxx
 
-def DTWDistanceWindowLB_Ordered_TIPX2003(queryID, LBs, DTWdist, TH, P, s1, refs, W):
+def DTWDistanceWindowLB_Ordered_TIPX2003_ea(queryID, LBs, DTWdist, TH, P, s1, refs, W):
     '''
     Compute the shortest DTW between a query and references series.
     :param queryID: the index number of this query
@@ -115,22 +119,22 @@ def DTWDistanceWindowLB_Ordered_TIPX2003(queryID, LBs, DTWdist, TH, P, s1, refs,
     LBSortedIndex = np.argsort(LBs)
     #LBSortedIndex = sorted(range(len(LBs)),key=lambda x: LBs[x])
     predId = LBSortedIndex[0]
-    end=time.time()
-    coretime += (end - start)
+#    end=time.time()
+#    coretime += (end - start)
 
     dist,dxx  = DTWwnd (s1, refs[predId], W)
 
-    start = time.time()
+#    start = time.time()
     for x in range(1, len(LBSortedIndex)):
         thisrefid = LBSortedIndex[x]
         if LBs[thisrefid] >= dist:
             skips = len(LBs) - x
             break
-        elif LBs[thisrefid] >= dist - TH*dist:
-            p_lb = tiBounds_top_calP_list_comp(s1, refs[thisrefid], P, W, dxx)
+        elif LBs[thisrefid] >= dist - TH * dist:
+            p_lb = tiBounds_top_calP_list_comp_eb(s1, refs[thisrefid], P, W, dxx, dist)
             p_cals += 1
             if p_lb < dist:
-                dist2 = DTWdist[queryID][thisrefid]
+                dist2 = DTW_a(s1, refs[thisrefid], W, dist)
                 if dist > dist2:
                     dist = dist2
                     predId = thisrefid
@@ -138,7 +142,7 @@ def DTWDistanceWindowLB_Ordered_TIPX2003(queryID, LBs, DTWdist, TH, P, s1, refs,
                 skips = len(LBs) - x
                 break
         else:
-            dist2 = DTWdist[queryID][thisrefid]
+            dist2 = DTW_a(s1, refs[thisrefid], W, dist)
             if dist > dist2:
                 dist = dist2
                 predId = thisrefid
@@ -147,22 +151,6 @@ def DTWDistanceWindowLB_Ordered_TIPX2003(queryID, LBs, DTWdist, TH, P, s1, refs,
 
     return dist, predId, skips, coretime, p_cals
 
-
-def loadSkips (datasets, maxdim, windowSizes, nqueries, nrefs, THs):
-    skips_all = []
-    for dataset in datasets:
-        for idx, w in enumerate(windowSizes):
-            skips_temp = []
-            for TH in THs:
-                with open(pathUCRResult + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nqueries)+
-                                  "X"+str(nrefs)+ "_X1_TH"+str(TH)+"_results.txt", 'r') as f:
-                    temp = f.readlines()
-                    temps = [l.strip()[1:-1] for l in temp]
-                    results = [t.split(',') for t in temps]
-                    skips = [int(r[2]) for r in results]
-                    skips_temp.append(sum(skips))
-            skips_all.append(skips_temp)
-    return skips_all
 
 def dataCollection (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], THs=[0.1], period_g=5):
     datasets = []
@@ -218,23 +206,23 @@ def dataCollection (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,
                 distances = np.load(distanceFileName)
 #            dists = [[DTW(s1, s2, windowSize) for s2 in reference] for s1 in query]
             for TH in THs:
-                results = [DTWDistanceWindowLB_Ordered_TIPX2003(ids1, lb2003[ids1], distances, TH,
+                results = [DTWDistanceWindowLB_Ordered_TIPX2003_ea(ids1, lb2003[ids1], distances, TH,
                             period_g, query[ids1], reference, windowSize) for ids1 in range(len(query))]
                 if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
                     print('Wrong Results!! Dataset: ' + dataset)
                     exit()
                 with open(toppath+ str(nqueries) + "X" + str(
-                    nreferences) + "_X1_TH"+str(TH)+"_results.txt", 'w') as f:
+                    nreferences) + "_X1_ea_TH"+str(TH)+"_results.txt", 'w') as f:
                     for r in results:
                         f.write(str(r)+'\n')
                 # with open(toppath+ str(nqueries) + "X" + str(
-                #     nreferences) + "_X1_TH"+str(TH)+"_times.txt", 'w') as f:
+                #     nreferences) + "_X1e_TH"+str(TH)+"_times.txt", 'w') as f:
                 #     f.write(str(end-start)+'\n')
                 #     f.write(str(periodTime)+'\n')
                 # f.close()
                 # allResults.append(results)
 #    np.save(pathUCRResult+"" + '/_AllDataSets/' + "/d"+ str(maxdim) + "/" + str(nqueries)+"X"+str(nreferences)
-#            + "_X1_"+"w" + intlist2str(windows)+ "TH"+intlist2str(THs) + "_times.npy", allTimes)
+#            + "_X1e_"+"w" + intlist2str(windows)+ "TH"+intlist2str(THs) + "_times.npy", allTimes)
     return 0
 
 
@@ -275,30 +263,30 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
         for TH in THs:
             results = readResultFile(
             pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
-                nreferences) + "_X1_TH" + str(TH) + "_results.txt")
+                nreferences) + "_X1_ea_TH" + str(TH) + "_results.txt")
             tCore.append(sum(results[:, 3]))
             skips.append(sum(results[:, 2]))
     tCore = np.array(tCore).reshape((ndatasets,-1))
     skips = np.array(skips).reshape((ndatasets,-1))
 
-    tCorePlus = tCore + np.array([t1nd[0:ndatasets]*nqueries,]*tCore.shape[1]).transpose()
-    tDTW = np.tile(t1dtw[0:ndatasets],(skips.shape[1],1)).transpose() * ((skips-NPairs)*-1)
-    tsum = rother*tCorePlus+ rdtw*tDTW
+    tCorePlus = tCore
+#    tDTW = np.tile(t1dtw[0:ndatasets],(skips.shape[1],1)).transpose() * ((skips-totalPairs)*-1)
+    tsum = rother*tCorePlus
     tsum_min = np.min(tsum,axis=1)
     setting_chosen = np.argmin(tsum, axis=1)
     skips_chosen = np.array( [skips[i,setting_chosen[i]] for i in range(skips.shape[0])] )
-    overhead = rother*( np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])]) + tLB)
+#    overhead = rother*( np.array([tCorePlus[i,setting_chosen[i]] for i in range(tCorePlus.shape[0])]) + tLB)
     speedups = (rdtw*t1dtw[0:ndatasets] * NPairs) / (rother*tLB + tsum_min)
-    overheadrate = overhead/(rdtw*t1dtw[0:ndatasets] * NPairs)
+#    overheadrate = overhead/(rdtw*t1dtw[0:ndatasets] * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X1_w" + str(window) + 'TH'+intlist2str(THs)+'_speedups.npy', speedups)
+            "_X1_ea_w" + str(window) + 'TH'+intlist2str(THs)+'_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X1_w" + str(window) + 'TH' + intlist2str(THs) + '_skipschosen.npy', skips_chosen)
+            "_X1_ea_w" + str(window) + 'TH' + intlist2str(THs) + '_skipschosen.npy', skips_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X1_w" + str(window) + 'TH' + intlist2str(THs) + '_settingchosen.npy', setting_chosen)
-    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X1_w" + str(window) + 'TH' + intlist2str(THs) + '_overheadrate.npy', overheadrate)
+            "_X1_ea_w" + str(window) + 'TH' + intlist2str(THs) + '_settingchosen.npy', setting_chosen)
+#    np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
+#            "_X1_ea_w" + str(window) + 'TH' + intlist2str(THs) + '_overheadrate.npy', overheadrate)
     return 0
 
 
