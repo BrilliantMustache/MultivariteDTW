@@ -10,7 +10,7 @@ def geo_mean(iterable):
     a = np.array(iterable)
     return a.prod()**(1.0/len(a))
 
-path='../Results/UCR/'
+path='../Results/UCR/XipengShenMacOther.local_4/'
 
 ####### for all series
 maxdim_g = 5
@@ -86,7 +86,7 @@ speedups = np.array([np.load(f) for f in speedupFiles])
 skips = np.array([np.load(f) for f in skipFiles])
 overhead = np.array([np.load(f) for f in overheadFiles])
 #alltable = np.array([speedups, skips, overhead])
-with open(fnm+"_All_speedups.txt", 'w') as f:
+with open(fnm+"_All_speedups.txt", 'w+') as f:
     for w in speedupMethods:
         f.write(w+',')
     f.write('\n')
@@ -94,7 +94,7 @@ f=open(fnm+"_All_speedups.txt",'ab')
 np.savetxt(f, speedups.transpose(), delimiter=',')
 f.close()
 
-with open(fnm+"_All_skips.txt", 'w') as f:
+with open(fnm+"_All_skips.txt", 'w+') as f:
     for w in skipMethods:
         f.write(w+',')
     f.write('\n')
@@ -102,7 +102,7 @@ f=open(fnm+"_All_skips.txt",'ab')
 np.savetxt(f, skips.transpose(), delimiter=',')
 f.close()
 
-with open(fnm+"_All_overhead.txt", 'w') as f:
+with open(fnm+"_All_overhead.txt", 'w+') as f:
     for w in overheadMethods:
         f.write(w+',')
     f.write('\n')

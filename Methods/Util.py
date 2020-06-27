@@ -223,11 +223,11 @@ def normalize(aserie):
     return pd.DataFrame(nmSerie).transpose()
 
 def loadUCRData_norm_xs (path, name, n):
-    dataDims = pd.read_csv(path + "DataDimensions.csv")
-    dataDims = dataDims.drop(columns=dataDims.columns[10:])
-    dataDims.at[23, "Problem"] = "PhonemeSpectra"
-    dataDims = dataDims.set_index('Problem')
-    dataDims['Total Instances'] = [(datafile[1] + datafile[2]) * datafile[3] * datafile[4] for id, datafile in dataDims.iterrows()]
+    # dataDims = pd.read_csv(path + "DataDimensions.csv")
+    # dataDims = dataDims.drop(columns=dataDims.columns[10:])
+    # dataDims.at[23, "Problem"] = "PhonemeSpectra"
+    # dataDims = dataDims.set_index('Problem')
+    # dataDims['Total Instances'] = [(datafile[1] + datafile[2]) * datafile[3] * datafile[4] for id, datafile in dataDims.iterrows()]
 
     datasetName = name
     if n==0:

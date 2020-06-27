@@ -154,7 +154,7 @@ X1ea.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nrefe
 #
 
 print(">>>>>> Start X3rsea")
-#X3rsea.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, Ks_g, Qs_g)
+X3rsea.dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim_g, nqueries_g, nreferences_g, windows_g, Ks_g, Qs_g)
 X3rsea.dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g, nqueries_g, nreferences_g, windows_g, Ks_g, Qs_g)
 #
 # print(">>>>>> Start X3rse")
