@@ -175,7 +175,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             np.save(pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                     + str(nqueries) + "X" + str(nreferences) + "_X2_K" + str(K) + "_lbs.npy", lbs_X2)
             allTimes.append(times)
-            results=get_skips (dataset, maxdim, w, lbs_X2, query, reference)
+            results=get_skips (dataset, maxdim, w, lbs_X2, query, reference, pathUCRResult)
             if findErrors(dataset,maxdim,w,nqueries,nreferences,results,pathUCRResult):
                 print('Wrong Results!! Dataset: '+dataset)
                 exit()

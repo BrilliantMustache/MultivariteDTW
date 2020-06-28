@@ -111,11 +111,11 @@ def DTWDistanceWindowLB_Ordered_xs_a(LBs, w, query, references):
     coreTime = end - start
     return dist, predId, skips, coreTime
 
-def get_skips (dataset, maxdim, w, lbs, queries, references):
+def get_skips (dataset, maxdim, w, lbs, queries, references, pathUCRResult):
     nqueries=len(queries)
     nrefs=len(references)
     print("W="+str(w)+'\n')
-    distanceFileName = "../Results/UCR/" + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nqueries)\
+    distanceFileName = pathUCRResult + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nqueries)\
                        +"X"+str(nrefs)+"_NoLB_DTWdistances.npy"
     if not os.path.exists(distanceFileName):
         distances = [[DTW(s1, s2, w) for s2 in references] for s1 in queries]
@@ -232,13 +232,13 @@ def loadUCRData_norm_xs (path, name, n):
     datasetName = name
     if n==0:
         pklfiles = glob.glob(path + datasetName + "/*.pkl")
-        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[0]))
+        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[-1]))
         allData = [normalize(pd.read_pickle(g).fillna(0)) for g in pklfiles]
     else:
         cnt = 0
         allData = []
         pklfiles = glob.glob(path + datasetName + "/*.pkl")
-        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[0]))
+        pklfiles = sorted(pklfiles, key=lambda x: float(re.findall("(\d+)", x)[-1]))
         for g in pklfiles:
             cnt +=1
             if (cnt > n):
