@@ -15,10 +15,10 @@ def cleanWorkspace (pathUCRResult, distanceFileDir, datasetsNameFile, dataSizeFi
     usableDataSets = []
     datasizes=[]
     sizes = []
-    a = input("Are you sure to clean the workspace in "+pathUCRResult+"? (y/n) ")
-    if a!='y':
-        print("Please rerun me when you are ready.")
-        exit()
+#    a = input("Are you sure to clean the workspace in "+pathUCRResult+"? (y/n) ")
+#    if a!='y':
+#        print("Please rerun me when you are ready.")
+#        exit()
     datasets = []
     with open(datasetsNameFile, 'r') as f:
         for line in f:
@@ -83,14 +83,18 @@ pathUCRResult=pathUCRResult+'/'
 datasetsNameFile = pathUCRResult+"datasets_node"+hostname+"_allStages.txt"
 datasetsSizeFile = pathUCRResult+"datasets_size_node"+hostname+"_allStages.txt"
 with open(alldatasetsNameFile, 'r') as f:
-    alldatasets = f.read().split('\n')
-np.savetxt(datasetsNameFile, [alldatasets[i-1] for i in datasetsIDs], fmt='%s')
+    alldatasets = f.read().strip()
+alldatasets = alldatasets.split('\n')
+thisnodesets = [alldatasets[i-1] for i in datasetsIDs]
+np.savetxt(datasetsNameFile, thisnodesets, fmt='%s')
 with open(alldatasetsSizeFile, 'r') as f:
-    alldatasizes = f.read().split('\n')
-np.savetxt(datasetsSizeFile, [alldatasizes[i-1] for i in datasetsIDs], fmt='%s')
+    alldatasizes = f.read().strip()
+alldatasizes=alldatasizes.split('\n')
+thisnodesizes = [alldatasizes[i-1] for i in datasetsIDs]
+np.savetxt(datasetsSizeFile, thisnodesizes, fmt='%s')
 
 with open(logfile, 'a+') as f:
-    f.write('Node '+hostname+' : '+ ",".join(alldatasets)+" . Full run.")
+    f.write('Node '+hostname+' : '+ ",".join(thisnodesets)+" . Full run.\n")
 #datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
 #datasetsNameFile = pathUCRResult+"allDataSetsNames_firstTwo.txt"
 #datasetsSizeFile = pathUCRResult+"size_firstTwo.txt"
