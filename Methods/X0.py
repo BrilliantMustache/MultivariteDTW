@@ -44,6 +44,15 @@ def getLB_oneQ (X, others, dim, sl_bounds):
     return lbs
 
 def getLBs (dataset, query, reference, w, dim):
+    '''
+    Get Lower Bounds of 2003. !!!!Actual w is capped at length/2!!!!
+    :param dataset:
+    :param query:
+    :param reference:
+    :param w:
+    :param dim:
+    :return:
+    '''
     nqueries = len(query)
     length = len(query[0])
     nrefs=len(reference)
@@ -134,7 +143,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         reference = [r.values[:, :dim] for r in samplereference]
 
         for w in windows:
-            lbs_2003, times = getLBs (dataset, query, reference, w, dim)
+            lbs_2003, times = getLBs (dataset, query, reference, w, dim) # actual w is capped at length/2
             np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                     + str(nqueries) + "X" + str(nreferences) + "_X0_lbs.npy", lbs_2003)
             allTimes.append(times)

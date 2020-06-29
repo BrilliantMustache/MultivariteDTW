@@ -232,13 +232,14 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         for w in windows:
             for K in Ks:
                 for Q in Qs:
+                    windowSize = w if w <= length / 2 else int(length / 2)  # added by xshen on 6/29 2pm
                     print("K="+str(K)+" Q="+str(Q))
                     lbs_X3, times, nboxes = getLBs (dataset, query, reference, w, dim, K, Q)
                     allnboxes.append(nboxes)
                     np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                             + str(nqueries) + "X" + str(nreferences) + "_X3_ra_K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
                     allTimes.append(times)
-                    results = get_skips_a(w, lbs_X3, query, reference, pathUCRResult, nqueries, nreferences)
+                    results = get_skips_a(windowSize, lbs_X3, query, reference)
                     wrongQueries = findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult)
                     if wrongQueries:
                         print('Wrong Results!! Dataset: ' + dataset+'. Queries: '+ ",".join(wrongQueries))

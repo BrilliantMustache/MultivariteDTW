@@ -19,6 +19,10 @@ THs_g = [0.5]
 K_g = 4
 period_g = 5
 
+x3rseac_spd = np.load('/Users/xshen/PycharmProjects/MultivariteDTW/Results/UCR/_AllDataSets/d5/3X20_X3_rseac_w20K6_8Q2_3C0_speedups.npy')
+
+nboxes = np.load("/Users/xshen/PycharmProjects/MultivariteDTW/Results/UCR/XipengShenMacOther.local_17/_AllDatasets/d5/0X0_X3_rsea_w20K6Q2_3_nboxes.npy")
+
 Z1ea_chosenSettings = np.load("../../Results/UCR/" + "_AllDataSets/" + 'd' + str(maxdim_g) + "/3X20_Z1_ea_w20TH0.05_0.1_0.2_speedups.npy")
                                                                                              #"/3X20_Z1_ea_w20TH0.2_0.4_0.6_0.8_settingchosen.npy")
 Z3ea_chosenSettings = np.load("../../Results/UCR/" + "_AllDataSets/" + 'd' + str(maxdim_g) + '/' + str(nqueries_g) + "X" + str(nreferences_g) +

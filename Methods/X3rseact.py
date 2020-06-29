@@ -164,7 +164,7 @@ def DTWDistanceWindowLB_Ordered_X3rseac_ (X0LBs, bboxes, s1, refs, W, distances,
 
     return dist, predId, skip, coretime, cluster_cals
 
-def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], C=4, THs=[1]):
+def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], THs=[1], C=4):
     datasets = []
     # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
     with open(datasetsNameFile, 'r') as f:
@@ -234,19 +234,19 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                             print('Wrong Results!! Dataset: ' + dataset)
                             exit()
                         with open(toppath + str(nqueries) + "X" + str(
-                                nreferences) + "_X3_rseac_K" + str(K) + "Q" + str(Q) + "C" + str(C) + "_results.txt", 'w') as f:
+                                nreferences) + "_X3_rseact_K" + str(K) + "Q" + str(Q) + "TH"+ str(TH)+"C" + str(C) + "_results.txt", 'w') as f:
                             for r in results:
                                 f.write(str(r) + '\n')
                         allsetupTimes.append(setuptime)
                         allnboxes.append(nboxes)
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
-            + "_X3_rseac_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "C" + str(C) + "_setuptimes.npy", allsetupTimes)
+            + "_X3_rseact_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + "C" + str(C) + "_setuptimes.npy", allsetupTimes)
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
-            + "_X3_rseac_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "C" + str(C) + "_nboxes.npy", allnboxes)
+            + "_X3_rseact_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + "C" + str(C) + "_nboxes.npy", allnboxes)
 
     return 0
 
-def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], C=4, machineRatios=[1,1]):
+def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], THs=[1], C=4, machineRatios=[1,1]):
     datasets = []
     # with open(pathUCRResult+"allDataSetsNames.txt",'r') as f:
     with open(datasetsNameFile, 'r') as f:
@@ -284,11 +284,12 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
     for dataset in datasets:
         for K in Ks:
             for Q in Qs:
-                results = readResultFile(
-                    pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
-                        nreferences) + "_X3_rseac_K" + str(K) + "Q"+str(Q)+ "C" + str(C) + "_results.txt")
-                tCore.append(sum(results[:, 3]))
-                skips.append(sum(results[:, 2]))
+                for TH in THs:
+                    results = readResultFile(
+                        pathUCRResult + dataset + '/d' + str(maxdim) + "/w" + str(windows[0]) + "/" + str(nqueries) + "X" + str(
+                            nreferences) + "_X3_rseact_K" + str(K) + "Q"+str(Q)+ "TH" + str(TH) + "C" + str(C) + "_results.txt")
+                    tCore.append(sum(results[:, 3]))
+                    skips.append(sum(results[:, 2]))
     tCore = np.array(tCore).reshape((ndatasets, -1))
     skips = np.array(skips).reshape((ndatasets, -1))
 #    tDTW = np.tile(t1dtw, (skips.shape[1], 1)).transpose() * ((skips - totalPairs) * -1)
@@ -301,11 +302,11 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
 #    overheadrate = overhead/(rdtw * t1dtw * NPairs)
 
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_rseac_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "C"+ str(C) + '_speedups.npy', speedups)
+            "_X3_rseact_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + "C"+ str(C) + '_speedups.npy', speedups)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_rseac_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "C"+ str(C) +  '_skipschosen.npy', skips_chosen)
+            "_X3_rseact_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + "C"+ str(C) +  '_skipschosen.npy', skips_chosen)
     np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
-            "_X3_rseac_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "C"+ str(C) +  '_settingchosen.npy', setting_chosen)
+            "_X3_rseact_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + "TH" + intlist2str(THs) + "C"+ str(C) +  '_settingchosen.npy', setting_chosen)
     #np.save(pathUCRResult + "_AllDataSets/" + 'd' + str(maxdim) + '/' + str(nqueries) + "X" + str(nreferences) +
     #        "_X3rsea_w" + str(window) + "K" + intlist2str(Ks) + "Q" + intlist2str(Qs) + '_overheadrate.npy', overheadrate)
 
@@ -327,8 +328,8 @@ if __name__ == "__main__":
     Qs_g = [2, 3]
     C = 0
     windows_g = [20]
-    TH_g=1
-    dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile,datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,C,TH_g)
-    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,C)
+    TH_gs=[1]
+    dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile,datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g, THs_g, C,TH_g)
+    dataProcessing(datasetsNameFile, pathUCRResult, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,THs_g, C)
 
     print("End")

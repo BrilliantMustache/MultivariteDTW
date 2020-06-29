@@ -47,7 +47,7 @@ def getLBs (dataset, query, reference, w, dim):
     nqueries = len(query)
     length = len(query[0])
     nrefs=len(reference)
-    windowSize = w # if w <= length / 2 else int(length / 2) # xshen removed the condition on 6/29 1:26pm.
+    windowSize = w if w <= length / 2 else int(length / 2)
     print("W=" + str(windowSize) + '\n')
 
     print("Starting Loose....")
@@ -135,11 +135,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
         reference = [r.values[:, :dim] for r in samplereference]
 
         for w in windows:
+            windowSize = w if w <= length / 2 else int(length / 2)    # added by xshen on 6/29 2pm
             lbs_2003, times = getLBs (dataset, query, reference, w, dim)
             np.save(pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                     + str(nqueries) + "X" + str(nreferences) + "_X0_a_lbs.npy", lbs_2003)
             allTimes.append(times)
-            results= get_skips_a(w, lbs_2003, query, reference)
+            results= get_skips_a(windowSize, lbs_2003, query, reference)
             if findErrors(dataset,maxdim,w,nqueries, nreferences,results,pathUCRResult):
                 print('Wrong Results!! Dataset: '+dataset)
                 exit()
