@@ -140,7 +140,7 @@ def DTWDistanceWindowLB_Ordered_Z3_ea_ (queryID, DTWdist, K, Q, query, reference
     for x in range(1, len(LBSortedIndex)):
         thisrefid = LBSortedIndex[x]
         if M0LBs[thisrefid] >= dist:
-            skip = len(M0LBs) - x
+            skip += (len(M0LBs) - x)
             break
         elif M0LBs[thisrefid] >= dist - TH*dist:
             c_lb = getLB_oneQR(query, references[thisrefid], bboxes, dist)
@@ -152,8 +152,7 @@ def DTWDistanceWindowLB_Ordered_Z3_ea_ (queryID, DTWdist, K, Q, query, reference
                     dist = dist2
                     predId = thisrefid
             else:
-                skip = len(M0LBs) - x
-                break
+                skip += 1
         else:
             dist2 = DTW_a(query, references[thisrefid], W, dist)
             #dist2 = DTWdist[queryID][thisrefid]
@@ -213,11 +212,8 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             toppath = pathUCRResult + dataset + "/d" + str(maxdim) + '/w' + str(w) + "/"
             distanceFileName = pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
                                str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
-            if not os.path.exists(distanceFileName):
-                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
-                np.save(distanceFileName, np.array(distances))
-            else:
-                distances = np.load(distanceFileName)
+            assert(os.path.exists(distanceFileName))
+            distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
                     for TH in THs:

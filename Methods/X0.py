@@ -138,7 +138,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                     + str(nqueries) + "X" + str(nreferences) + "_X0_lbs.npy", lbs_2003)
             allTimes.append(times)
-            results=get_skips (dataset, maxdim, w, lbs_2003, query, reference, pathUCRResult)
+            results=get_skips (dataset, maxdim, w, lbs_2003, query, reference, pathUCRResult,nqueries,nreferences)
             if findErrors(dataset,maxdim,w,nqueries,nreferences,results,pathUCRResult):
                 print('Wrong Results!! Dataset: '+dataset)
                 exit()
@@ -219,7 +219,8 @@ def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5
 if __name__ == "__main__":
     datapath= "/Users/xshen/Kids/DanielShen/Research/DTW/Triangle/workshop/TriangleDTW/Data/Multivariate_pickled/"
     pathUCRResult = "../Results/UCR/"
-    datasetsNameFile = pathUCRResult+"allDataSetsNames_no_EigenWorms.txt"
+#    datasetsNameFile = pathUCRResult+"allDataSetsNames_no_EigenWorms.txt"
+    datasetsNameFile = pathUCRResult+"onlyFirstDataset.txt"
     datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
 
     maxdim_g = 5

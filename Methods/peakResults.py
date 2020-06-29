@@ -10,21 +10,22 @@ def geo_mean(iterable):
     a = np.array(iterable)
     return a.prod()**(1.0/len(a))
 
-path='../Results/UCR/XipengShenMacOther.local_4/'
+path='/Users/xshen/PycharmProjects/MultivariteDTW/Results/UCR/XipengShenMacOther.local_18/'
+#path='/Users/xshen/PycharmProjects/MultivariteDTW/Results/UCR/'
 
 ####### for all series
 maxdim_g = 5
 nqueries_g = 0
 nreferences_g = 0
-windows_g = [20]
-machineRatios = [1, 1]
-THs_g = [0.05, 0.1, 0.2]
-#THs_g = [0.2, 0.4, 0.6, 0.8]
-Ks_g = [4, 6, 8]
-Qs_g = [2, 3, 4]
-THs_g_Z3 = [0.8, 0.5, 0.3]
-K_g = 4
-period_g = 5
+# windows_g = [20]
+# machineRatios = [1, 1]
+# THs_g = [0.05, 0.1, 0.2]
+# #THs_g = [0.2, 0.4, 0.6, 0.8]
+# Ks_g = [4, 6, 8]
+# Qs_g = [2, 3, 4]
+# THs_g_Z3 = [0.8, 0.5, 0.3]
+# K_g = 4
+# period_g = 5
 
 ####### for 3X20
 # maxdim_g = 5

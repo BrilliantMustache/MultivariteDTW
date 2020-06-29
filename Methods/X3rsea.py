@@ -26,10 +26,7 @@ def getLB_oneQR_boxR (X, sl_bounds, dist):
     slboundsOneY = boxstructOneY['boxes']
     indicesOneY = boxstructOneY['indices']
     for idx, x in enumerate(X):
-        try:
-            boxes = slboundsOneY[indicesOneY[idx]]
-        except:
-            print('wrong')
+        boxes = slboundsOneY[indicesOneY[idx]]
         numBoxes = len(boxes)
         oneYbounds=[]
         for idbox in range(numBoxes):
@@ -71,13 +68,16 @@ def getLB_oneQR_boxR (X, sl_bounds, dist):
 def getBoundingBoxes(references, w, K=4, Q=2):
     print("Bounding boxes finding Start!")
     start = time.time()
-    bboxes = [findBoundingBoxes_reuse(np.array(ref), K, w, Q) for ref in references]
+    bboxes = []
+    for ir in range(len(references)):
+#        print('Find boxes for reference '+str(ir))
+        bboxes.append(findBoundingBoxes_reuse(np.array(references[ir]), K, w, Q))
     end = time.time()
     setuptime2003cluster_q = end - start
     print("Bounding boxes Done!")
     return bboxes, setuptime2003cluster_q
 
-def DTWDistanceWindowLB_Ordered_X3rsea_ (X0LBs, bboxes, s1, refs, W, TH=1):
+def DTWDistanceWindowLB_Ordered_X3rsea_ (X0LBs, bboxes, s1, refs, W, distances, qid, TH=1):
     '''
     Compute the shortest DTW between a query and references series.
     :param queryID: the index number of this query
@@ -94,6 +94,8 @@ def DTWDistanceWindowLB_Ordered_X3rsea_ (X0LBs, bboxes, s1, refs, W, TH=1):
     :return: the DTW distance, the neareast neighbor of this query, the number of DTW distance calculations skipped,
              the number of times the clustering-based method is invoked
     '''
+#    if qid==77:
+#        print('qid==77')
     skip = 0
     cluster_cals = 0
     coretime = 0
@@ -111,7 +113,7 @@ def DTWDistanceWindowLB_Ordered_X3rsea_ (X0LBs, bboxes, s1, refs, W, TH=1):
     for x in range(1, len(LBSortedIndex)):
         thisrefid = LBSortedIndex[x]
         if X0LBs[thisrefid] >= dist:
-            skip = len(X0LBs) - x
+            skip += (len(X0LBs) - x)
             break
         elif X0LBs[thisrefid] >= dist - TH*dist:
             c_lb = getLB_oneQR_boxR(s1, bboxes[thisrefid],dist)
@@ -122,8 +124,7 @@ def DTWDistanceWindowLB_Ordered_X3rsea_ (X0LBs, bboxes, s1, refs, W, TH=1):
                     dist = dist2
                     predId = thisrefid
             else:
-                skip = len(X0LBs) - x
-                break
+                skip += 1
         else:
             dist2 = DTW_a(s1, refs[thisrefid], W, dist)
             if dist > dist2:
@@ -151,6 +152,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
 #    datasets=["ArticularyWordRecognition","AtrialFibrillation"]
 
     allsetupTimes = []
+    allnboxes = []
     for idxset, dataset in enumerate(datasets):
         print(dataset + " Start!")
         assert (datasize[idxset] >= nqueries + nreferences)
@@ -181,12 +183,19 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             toppath = pathUCRResult + dataset + "/d" + str(maxdim) + '/w' + str(w) + "/"
             lb2003 = load_M0LBs(pathUCRResult,dataset,maxdim,w,nqueries,nreferences)
 
+            distanceFileName = pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
+                               str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
+            distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
                     bboxes, setuptime = getBoundingBoxes(reference, w, K, Q)
                     results = [DTWDistanceWindowLB_Ordered_X3rsea_ (lb2003[ids1], bboxes,
-                                query[ids1], reference, windowSize) for ids1 in range(len(query))]
+                                query[ids1], reference, windowSize, distances, ids1) for ids1 in range(len(query))]
+                    nboxes = 0
+                    for r in range(len(reference)):
+                        uniqPointsBoxes = bboxes[r]['boxes']
+                        nboxes += sum([len(p) for p in uniqPointsBoxes])
                     if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
                         print('Wrong Results!! Dataset: ' + dataset)
                         exit()
@@ -195,8 +204,12 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                         for r in results:
                             f.write(str(r) + '\n')
                     allsetupTimes.append(setuptime)
+                    allnboxes.append(nboxes)
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
             + "_X3_rsea_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "_setuptimes.npy", allsetupTimes)
+    np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
+            + "_X3_rsea_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "_nboxes.npy", allnboxes)
+
     return 0
 
 def dataProcessing(datasetsNameFile, pathUCRResult="../Results/UCR/", maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2],machineRatios=[1,1]):
@@ -271,10 +284,10 @@ if __name__ == "__main__":
     datasetsSizeFile = pathUCRResult+"size_no_EigenWorms.txt"
 
     maxdim_g = 5
-    nqueries_g = 3
-    nreferences_g = 20
-    Ks_g = [4, 6, 8]
-    Qs_g = [2, 3, 4]
+    nqueries_g = 0
+    nreferences_g = 0
+    Ks_g = [6, 8]
+    Qs_g = [2, 3]
     windows_g = [20]
     TH_g=1
     dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile,datapath, maxdim_g,nqueries_g,nreferences_g,windows_g,Ks_g,Qs_g,TH_g)

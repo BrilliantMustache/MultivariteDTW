@@ -94,6 +94,34 @@ def inBoxes (p, bboxes):
             return True
     return False
 
+def validatebboxes(ref, bbs, W):
+    bbids = bbs['indices']
+    assert(len(bbids)==len(ref))
+    length = len(ref)
+    for i in range(length):
+        boxes = bbs['boxes'][bbids[i]]
+        awinIdx = range((i - W if i - W >= 0 else 0), (i + W if i + W <= length else length))
+        assert(awinIdx[0] <= i)
+        assert(len(awinIdx)<=2*W)
+        awindow = ref[awinIdx]
+        for j in range(len(awindow)):
+            p = awindow[j]
+            outs = 0
+            for k in range(len(boxes)):
+                bx = boxes[k] # [[Ld1, Ld2, ...], [Ud1, Ud2, ...] ]
+                out = False
+                for dim in range(len(p)):
+                    if (p[dim] < bx[0][dim]):
+                        out = True
+                    elif (p[dim] > bx[1][dim]):
+                        out = True
+                outs += int(out)
+            if (outs >= len(boxes)):
+                print("Error: i="+str(i)+' j='+str(j))
+                return 0
+    return 1
+
+
 def findBoundingBoxes_reuse (ref, K, W, Q):
     '''
     find the K bounding boxes for each window in ref with quantizations
@@ -118,17 +146,23 @@ def findBoundingBoxes_reuse (ref, K, W, Q):
     indices.append(previousIndices)
 
     # the rest
-    for idx in range(1,length):
-        if inBoxes(ref[idx], previousBoxes):
+    for idx in range(1,length-W+1):
+        newpoint = ref[idx+W-1]
+        if inBoxes(newpoint, previousBoxes):
             indices.append(previousIndices)
         else:
-            awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W if idx + W <= length else length)]
+            awindow = ref[(idx - W if idx - W >= 0 else 0):(idx + W)]
             previousBoxes = findBoxes_onepoint(awindow, K, Q)
             bboxes.append(previousBoxes)
             previousIndices += 1
             indices.append(previousIndices)
+    for idx in range(length-W+1, length):
+        indices.append(previousIndices)
 
     result = {'boxes': bboxes, 'indices': indices}
+
+#    validatebboxes(ref, result, W)
+
     return result
 
 
@@ -150,10 +184,7 @@ def getLB_oneQ (X, others, dim, sl_bounds):
         slboundsOneY = boxstructOneY['boxes']
         indicesOneY = boxstructOneY['indices']
         for idx, x in enumerate(X):
-            try:
-                boxes = slboundsOneY[indicesOneY[idx]]
-            except:
-                print('wrong')
+            boxes = slboundsOneY[indicesOneY[idx]]
             numBoxes = len(boxes)
             oneYbounds=[]
             for idbox in range(numBoxes):
@@ -235,7 +266,7 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
                     np.save(pathUCRResult + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/"
                             + str(nqueries) + "X" + str(nreferences) + "_X3_r_K" + str(K) + "Q" + str(Q) + "_lbs.npy", lbs_X3)
                     allTimes.append(times)
-                    results = get_skips(dataset, maxdim, w, lbs_X3, query, reference, pathUCRResult)
+                    results = get_skips(dataset, maxdim, w, lbs_X3, query, reference, pathUCRResult, nqueries,nreferences)
                     if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
                         print('Wrong Results!! Dataset: ' + dataset)
                         exit()

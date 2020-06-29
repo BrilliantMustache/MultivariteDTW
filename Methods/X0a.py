@@ -47,7 +47,7 @@ def getLBs (dataset, query, reference, w, dim):
     nqueries = len(query)
     length = len(query[0])
     nrefs=len(reference)
-    windowSize = w if w <= length / 2 else int(length / 2)
+    windowSize = w # if w <= length / 2 else int(length / 2) # xshen removed the condition on 6/29 1:26pm.
     print("W=" + str(windowSize) + '\n')
 
     print("Starting Loose....")

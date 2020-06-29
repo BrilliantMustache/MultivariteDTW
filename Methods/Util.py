@@ -111,17 +111,21 @@ def DTWDistanceWindowLB_Ordered_xs_a(LBs, w, query, references):
     coreTime = end - start
     return dist, predId, skips, coreTime
 
-def get_skips (dataset, maxdim, w, lbs, queries, references, pathUCRResult):
+def get_skips (dataset, maxdim, w, lbs, queries, references, pathUCRResult, nq, nref):
     nqueries=len(queries)
     nrefs=len(references)
     print("W="+str(w)+'\n')
-    distanceFileName = pathUCRResult + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nqueries)\
-                       +"X"+str(nrefs)+"_NoLB_DTWdistances.npy"
-    if not os.path.exists(distanceFileName):
-        distances = [[DTW(s1, s2, w) for s2 in references] for s1 in queries]
-        np.save(distanceFileName,np.array(distances))
-    else:
-        distances = np.load(distanceFileName)
+    distanceFileName = pathUCRResult + dataset + '/d' + str(maxdim) + '/w'+ str(w) + "/"+str(nq)\
+                       +"X"+str(nref)+"_NoLB_DTWdistances.npy"
+    print(distanceFileName)
+    assert(os.path.exists(distanceFileName))
+    # if not os.path.exists(distanceFileName):
+    #     print('get_skips: found no distance file. recollect distances.')
+    #     distances = [[DTW(s1, s2, w) for s2 in references] for s1 in queries]
+    #     np.save(distanceFileName,np.array(distances))
+    # else:
+    print('get_skips: loading distances.')
+    distances = np.load(distanceFileName)
 
     results =[]
     for ids1 in range(nqueries):
@@ -133,6 +137,9 @@ def get_skips_a(w, lbs, queries, references):
 
     results =[]
     for ids1 in range(nqueries):
+        if ids1==5812:
+            print('581th query done.')
+            exit()
         rst = DTWDistanceWindowLB_Ordered_xs_a(lbs[ids1], w, queries[ids1], references)
         results.append(rst)
     return results
@@ -298,6 +305,7 @@ def findErrors (dataset, maxdim, w, nqueries, nreferences, results, pathUCRResul
     results=np.array(results)
     for i in range(groundTruth.shape[0]):
         if (groundTruth[i,0] != results[i,0]):
+            print('Wrong result on query: '+str(i))
             errorQueries.append(i)
     return errorQueries
 

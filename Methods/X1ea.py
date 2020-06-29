@@ -199,11 +199,8 @@ def dataCollection (pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath,
             lb2003 = load_M0LBs(pathUCRResult,dataset,maxdim,w,nqueries,nreferences)
             distanceFileName = pathUCRResult+"" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
                                str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
-            if not os.path.exists(distanceFileName):
-                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
-                np.save(distanceFileName, np.array(distances))
-            else:
-                distances = np.load(distanceFileName)
+            assert(os.path.exists(distanceFileName))
+            distances = np.load(distanceFileName)
 #            dists = [[DTW(s1, s2, windowSize) for s2 in reference] for s1 in query]
             for TH in THs:
                 results = [DTWDistanceWindowLB_Ordered_TIPX2003_ea(ids1, lb2003[ids1], distances, TH,

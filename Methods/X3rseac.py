@@ -164,7 +164,7 @@ def DTWDistanceWindowLB_Ordered_X3rseac_ (X0LBs, bboxes, s1, refs, W, distances,
 
     return dist, predId, skip, coretime, cluster_cals
 
-def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], C=4, TH=1):
+def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, maxdim = 5, nqueries = 3, nreferences = 20, windows = [20], Ks=[6], Qs=[2], C=4, THs=[1]):
     datasets = []
     # with open("Results/UCR/allDataSetsNames.txt",'r') as f:
     with open(datasetsNameFile, 'r') as f:
@@ -217,27 +217,28 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
-                    print("K="+str(K)+" Q="+str(Q))
-                    if C<1:
-                        TC = K
-                    else:
-                        TC = C
-                    bboxes, setuptime = getBoundingBoxes(reference, w, K, Q, TC)
-                    results = [DTWDistanceWindowLB_Ordered_X3rseac_ (lb2003[ids1], bboxes,
-                                query[ids1], reference, windowSize, distances, ids1, TC, TH) for ids1 in range(len(query))]
-                    nboxes = 0
-                    for r in range(len(reference)):
-                        uniqPointsBoxes = bboxes[r]
-                        nboxes += sum([len(p) for p in uniqPointsBoxes])
-                    if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
-                        print('Wrong Results!! Dataset: ' + dataset)
-                        exit()
-                    with open(toppath + str(nqueries) + "X" + str(
-                            nreferences) + "_X3_rseac_K" + str(K) + "Q" + str(Q) + "C" + str(C) + "_results.txt", 'w') as f:
-                        for r in results:
-                            f.write(str(r) + '\n')
-                    allsetupTimes.append(setuptime)
-                    allnboxes.append(nboxes)
+                    for TH in THs:
+                        print("K="+str(K)+" Q="+str(Q)+" TH="+str(TH))
+                        if C<1:
+                            TC = K
+                        else:
+                            TC = C
+                        bboxes, setuptime = getBoundingBoxes(reference, w, K, Q, TC)
+                        results = [DTWDistanceWindowLB_Ordered_X3rseac_ (lb2003[ids1], bboxes,
+                                    query[ids1], reference, windowSize, distances, ids1, TC, TH) for ids1 in range(len(query))]
+                        nboxes = 0
+                        for r in range(len(reference)):
+                            uniqPointsBoxes = bboxes[r]
+                            nboxes += sum([len(p) for p in uniqPointsBoxes])
+                        if findErrors(dataset, maxdim, w, nqueries, nreferences, results, pathUCRResult):
+                            print('Wrong Results!! Dataset: ' + dataset)
+                            exit()
+                        with open(toppath + str(nqueries) + "X" + str(
+                                nreferences) + "_X3_rseac_K" + str(K) + "Q" + str(Q) + "C" + str(C) + "_results.txt", 'w') as f:
+                            for r in results:
+                                f.write(str(r) + '\n')
+                        allsetupTimes.append(setuptime)
+                        allnboxes.append(nboxes)
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)
             + "_X3_rseac_w" + intlist2str(windows) +"K" + intlist2str(Ks)+ "Q" + intlist2str(Qs) + "C" + str(C) + "_setuptimes.npy", allsetupTimes)
     np.save(pathUCRResult + '_AllDataSets/' + 'd' + str(maxdim) + "/" + str(nqueries) + "X" + str(nreferences)

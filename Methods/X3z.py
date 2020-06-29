@@ -198,11 +198,8 @@ def dataCollection(pathUCRResult, datasetsNameFile, datasetsSizeFile, datapath, 
             lb2003 = load_M0LBs(pathUCRResult,dataset,maxdim,w,nqueries,nreferences)
             distanceFileName = pathUCRResult + "" + dataset + '/d' + str(maxdim) + '/w' + str(w) + "/" + \
                                str(nqueries) + "X" + str(nreferences) + "_NoLB_DTWdistances.npy"
-            if not os.path.exists(distanceFileName):
-                distances = [[DTW(s1, s2, w) for s2 in reference] for s1 in query]
-                np.save(distanceFileName, np.array(distances))
-            else:
-                distances = np.load(distanceFileName)
+            assert(os.path.exists(distanceFileName))
+            distances = np.load(distanceFileName)
             for K in Ks:
                 for Q in Qs:
                     print("K="+str(K)+" Q="+str(Q))
